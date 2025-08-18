@@ -1,5 +1,5 @@
 .heroSection {
-  height: 91vh;
+  height: 92vh;
   background-image: url(/images/hero-bg-image.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -33,6 +33,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 172px;
   border-radius: 200px;
   height: 56px;
   cursor: pointer;
@@ -42,6 +43,11 @@
   &:focus {
     background-color: var(--hover-color);
   }
+}
 
-  max-width: 172px;
+@media (min-resolution: 192dpi) {
+  .heroSection {
+    background-image: url(/images/hero-bg-image@2x.png);
+    background-size: cover 696px;
+  }
 }
