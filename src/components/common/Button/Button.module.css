@@ -1,9 +1,6 @@
 .button {
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: var(--button-text-color);
-  background-color: var(--button-bg-color);
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,10 +8,26 @@
   border-radius: 200px;
   height: 56px;
   cursor: pointer;
+}
+
+.buttonPrimary {
+  border: none;
+  color: var(--button-text-color);
+  background-color: var(--button-bg-color);
   transition: background-color var(--transition);
 
   &:hover,
   &:focus {
     background-color: var(--hover-color);
+  }
+}
+
+.buttonSecondary {
+  border: 1px solid var(--button-border-color);
+  transition: border-color var(--transition);
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover-color);
   }
 }
