@@ -1,3 +1,5 @@
+@import 'reset.css';
+
 @font-face {
   font-display: swap;
   font-family: 'Inter';
@@ -51,6 +53,13 @@
 
   /* calendar */
   --calendar-main-color: #475467;
+
+  /* transition */
+  --transition: 0.15s ease-in;
+
+  /* header */
+  --header-bg-color: #f7f7f7;
+  --header-border-color: #f2f4f7;
 }
 
 * {
@@ -64,4 +73,23 @@ body {
   font-family: var(--font-family);
   font-size: var(--ont-size);
   font-weight: var(--font-weight);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: none;
+  overflow: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+input,
+textarea {
+  font-size: 16px;
 }

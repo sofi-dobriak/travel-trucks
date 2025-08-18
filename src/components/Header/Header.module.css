@@ -1,0 +1,11 @@
+.header {
+  border-bottom: 1px solid var(--header-border-color);
+  background-color: var(--header-bg-color);
+}
+
+.logoNavContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 724px;
+}
