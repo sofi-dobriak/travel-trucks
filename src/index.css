@@ -1,14 +1,67 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
   font-weight: 400;
+  src: url('../fonts/inter-v19-latin-regular.woff2') format('woff2');
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/inter-v19-latin-500.woff2') format('woff2');
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/inter-v19-latin-600.woff2') format('woff2');
+}
+
+:root {
+  --background-color: #fff;
+  --hover-color: #d84343;
+
+  /* fonts */
+  --font-family: 'Inter', sans-serif;
+  --line-height: 1.5;
+  --font-weight: 400;
+  --main-text-color: #101828;
+
+  /* inputs */
+  --input-text-color: #101828;
+  --input-background: #f7f7f7;
+  --input-border-color: #f7f7f7;
+  --input-placeholder-text-color: #6c717b;
+  --input-placeholder-text-color-hover: #101828;
+
+  /* icons */
+  --icon-main-color: #101828;
+  --icon-bg-label-color: #f2f4f7;
+  --icon-start-color: #f2f4f7;
+  --icon-start-active-color: #ffc531;
+
+  /* buttons */
+  --button-bg-color: #e44848;
+  --button-text-color: #fff;
+
+  /* calendar */
+  --calendar-main-color: #475467;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--color);
+  font-family: var(--font-family);
+  font-size: var(--ont-size);
+  font-weight: var(--font-weight);
 }
