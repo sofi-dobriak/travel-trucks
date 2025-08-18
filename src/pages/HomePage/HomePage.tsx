@@ -1,5 +1,11 @@
+import HeroScreen from '../../components/HeroScreen/HeroScreen';
+
 const HomePage = () => {
-  return <div>Home Page</div>;
+  return (
+    <>
+      <HeroScreen />
+    </>
+  );
 };
 
 export default HomePage;
