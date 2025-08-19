@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import s from './Checkbox.module.css';
 import { useState } from 'react';
 
-export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon: string;
   text: string;
   className?: string;
@@ -14,10 +14,10 @@ export default function Checkbox({ icon, text, className, ...rest }: CheckboxPro
   const handleClick = () => {
     setIsChecked(prev => !prev);
   };
-
   return (
     <div className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
       <input
+        id={rest.id}
         type='checkbox'
         name='checkbox'
         className='visually-hidden'

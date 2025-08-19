@@ -4,6 +4,7 @@ import s from './Button.module.css';
 type ButtonVariant = 'primary' | 'secondary';
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  disabled?: boolean;
   children: string;
   className?: string;
   variant?: ButtonVariant;

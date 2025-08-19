@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import s from './TextInput.module.css';
 
-export interface TextInputProps extends React.HTMLAttributes<HTMLInputElement> {
+export interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode;
   inputName: string;
   containerClassName?: string;

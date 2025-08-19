@@ -9,17 +9,6 @@ export const selectPage = (state: RootState) => state.campers.page;
 export const selectLimit = (state: RootState) => state.campers.limit;
 export const selectTotalItems = (state: RootState) => state.campers.totalItems;
 
-export const selectPaginationCampers = createSelector(
-  selectCampers,
-  selectPage,
-  selectLimit,
-  (campers, page, limit) => {
-    const startIndex: number = (page - 1) * limit;
-    const endIndex: number = startIndex + limit;
-    return campers.slice(startIndex, endIndex);
-  }
-);
-
 export const selectTotalPages = createSelector(
   selectTotalItems,
   selectLimit,

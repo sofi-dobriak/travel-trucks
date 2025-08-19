@@ -30,13 +30,23 @@ const slice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
+    resetCampers: state => {
+      state.campers = [];
+      state.page = 1;
+    },
   },
   extraReducers: builder => {
     builder
       .addCase(getAllCampers.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.campers = action.payload;
-        state.totalItems = action.payload.length;
+
+        if (state.page === 1) {
+          state.campers = action.payload.items;
+        } else {
+          state.campers = [...state.campers, ...action.payload.items];
+        }
+
+        state.totalItems = action.payload.total;
         state.error = null;
       })
       .addCase(getCamperById.fulfilled, (state, action) => {
