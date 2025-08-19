@@ -1,3 +1,10 @@
 .campersPageContainer {
+
   padding: 50px 0;
+}
+
+.campersFiltersListContainer {
+  display: flex;
+  align-items: start;
+  gap: 64px;
 }

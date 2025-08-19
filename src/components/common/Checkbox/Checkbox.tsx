@@ -16,18 +16,19 @@ export default function Checkbox({ icon, text, className, ...rest }: CheckboxPro
   };
 
   return (
-    <label className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
+    <div className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
       <input
         type='checkbox'
         name='checkbox'
         className='visually-hidden'
         checked={isChecked}
+        onChange={handleClick}
         {...rest}
       />
       <svg className={s.checkboxIcon} width={32} height={32}>
         <use href={icon}></use>
       </svg>
       <p className={s.checkboxText}>{text}</p>
-    </label>
+    </div>
   );
 }

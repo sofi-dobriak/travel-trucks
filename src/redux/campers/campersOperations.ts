@@ -23,9 +23,8 @@ export const getAllCampers = createAsyncThunk<Camper[], void, { state: RootState
       if (filters.kitchen) params.append('kitchen', 'true');
       if (filters.TV) params.append('TV', 'true');
 
-      const response = await instance.get<Camper[]>(`/campers?${params}`);
-      console.log(response.data);
-      return response.data;
+      const response = await instance.get<{ total: number; items: Camper[] }>(`/campers?${params}`);
+      return response.data.items;
     } catch (err) {
       const error = err as AxiosError<ErrorResponse>;
       const message = error?.response?.data?.message || 'Unknown error';
@@ -39,7 +38,6 @@ export const getCamperById = createAsyncThunk<Camper, string, ThunkConfig>(
   async (camperId, thunkAPI) => {
     try {
       const response = await instance.get<Camper>(`/campers/${camperId}`);
-      console.log(response.data);
       return response.data;
     } catch (err) {
       const error = err as AxiosError<ErrorResponse>;

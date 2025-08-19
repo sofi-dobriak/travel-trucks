@@ -49,6 +49,9 @@
   --icon-start-color: #f2f4f7;
   --icon-start-active-color: #ffc531;
 
+  /* label */
+  --label-bg-color: #f2f4f7;
+
   /* buttons */
   --button-bg-color: #e44848;
   --button-text-color: #fff;

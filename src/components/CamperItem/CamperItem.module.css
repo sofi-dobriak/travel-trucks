@@ -1,0 +1,108 @@
+.camperContainer {
+  border: 1px solid var(--button-border-color);
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 728px;
+  display: flex;
+  gap: 24px;
+}
+
+.camperImage {
+  border-radius: 10px;
+  max-width: 292px;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.camperTitlePriceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.camperTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.camperPriceLikeContainer {
+  display: flex;
+  align-items: start;
+  gap: 6px;
+}
+
+.camperPrice {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.camperLikeButton {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.camperRatingLocationContainer {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.camperRatingContainer,
+.camperLocationContainer {
+  display: flex;
+  align-items: start;
+  gap: 4px;
+}
+
+.camperStarIcon {
+  fill: var(--icon-start-active-color);
+}
+
+.camperDescriptionText {
+  color: var(--additional-text-color);
+  margin-bottom: 24px;
+  max-width: 362px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.camperLabelList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 524px;
+  margin-bottom: 24px;
+}
+
+.camperShowMoreButton {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 200px;
+  height: 56px;
+  cursor: pointer;
+  border: none;
+  color: var(--button-text-color);
+  background-color: var(--button-bg-color);
+  transition: background-color var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: var(--hover-color);
+  }
+
+  max-width: 166px;
+}

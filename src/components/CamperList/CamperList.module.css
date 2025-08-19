@@ -1,0 +1,17 @@
+.campersList {
+  margin-bottom: 40px;
+}
+
+.camperItem {
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 40px;
+  }
+}
+
+.campersLoadMoreButton {
+  display: block;
+  margin: 0 auto;
+  max-width: 146px;
+}

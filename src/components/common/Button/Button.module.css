@@ -25,6 +25,7 @@
 .buttonSecondary {
   border: 1px solid var(--button-border-color);
   transition: border-color var(--transition);
+  background-color: transparent;
 
   &:hover,
   &:focus {
