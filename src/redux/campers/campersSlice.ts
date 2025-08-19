@@ -19,7 +19,7 @@ const initialState: CampersInitialState = {
   isLoading: false,
   error: null,
   page: 1,
-  limit: 10,
+  limit: 4,
   totalItems: 0,
 };
 
