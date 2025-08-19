@@ -1,0 +1,28 @@
+.checkboxContainer {
+  display: block;
+  border: 1px solid var(--button-border-color);
+  border-radius: 12px;
+  width: 112px;
+  transition: border-color var(--transition);
+  cursor: pointer;
+  max-height: 96px;
+  padding: 16px;
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--hover-color);
+  }
+}
+
+
+.checkboxIcon {
+  fill: var(--icon-main-color);
+  margin: auto;
+  margin-bottom: 8px;
+}
+
+.checkboxText {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-align: center;
+}

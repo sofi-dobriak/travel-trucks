@@ -1,0 +1,32 @@
+.locationContainer {
+  margin-bottom: 40px;
+}
+
+.locationTitle {
+  font-size: 16px;
+  color: var(--input-placeholder-text-color);
+  margin-bottom: 8px;
+}
+
+.locationContainer {
+  position: relative;
+
+  &:hover,
+  &:focus-within {
+    .locationIcon {
+      fill: var(--main-text-color)
+    }
+  }
+}
+
+.locationInput {
+  padding-left: 48px;
+}
+
+.locationIcon {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  fill: var(--input-placeholder-text-color);
+  transition: all var(--transition);
+}

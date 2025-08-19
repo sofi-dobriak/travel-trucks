@@ -1,0 +1,18 @@
+.input {
+  border-radius: 12px;
+  border: 1px solid var(--button-border-color);
+  padding: 18px;
+  width: 100%;
+  max-width: 360px;
+  transition: all var(--transition);
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: var(--hover-color);
+
+    &::placeholder {
+      color: var(--main-text-color);
+    }
+  }
+}

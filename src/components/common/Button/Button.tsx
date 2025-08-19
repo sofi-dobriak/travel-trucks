@@ -5,14 +5,13 @@ type ButtonVariant = 'primary' | 'secondary';
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children: string;
-  className: string;
+  className?: string;
   variant?: ButtonVariant;
 }
 
 const Button = ({ children, className, variant = 'primary', ...rest }: ButtonProps) => {
   return (
     <button
-      type='button'
       {...rest}
       className={clsx(className, s.button, {
         [s.buttonPrimary]: variant === 'primary',
