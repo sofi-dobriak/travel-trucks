@@ -22,6 +22,7 @@ export default function TextInput({
       <input
         type='text'
         name={inputName}
+        id={inputName}
         placeholder={placeholder}
         {...rest}
         className={clsx(inputClassName, s.input)}

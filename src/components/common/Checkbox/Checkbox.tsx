@@ -17,7 +17,13 @@ export default function Checkbox({ icon, text, className, ...rest }: CheckboxPro
 
   return (
     <label className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
-      <input type='checkbox' className='visually-hidden' checked={isChecked} {...rest} />
+      <input
+        type='checkbox'
+        name='checkbox'
+        className='visually-hidden'
+        checked={isChecked}
+        {...rest}
+      />
       <svg className={s.checkboxIcon} width={32} height={32}>
         <use href={icon}></use>
       </svg>
