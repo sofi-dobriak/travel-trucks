@@ -15,6 +15,8 @@ const FiltersBar = () => {
   const [localLocation, setLocalLocation] = useState(globalLocation);
 
   const handleSearchClick = () => {
+    if (!localLocation) return;
+
     dispatch(resetFilters());
     dispatch(setFilters({ location: localLocation }));
     dispatch(getAllCampers());
