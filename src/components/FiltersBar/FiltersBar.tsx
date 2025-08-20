@@ -7,7 +7,7 @@ import { getAllCampers } from '../../redux/campers/campersOperations';
 import { selectLocation } from '../../redux/filters/filterSelectors';
 import { useSelector } from 'react-redux';
 import { resetFilters, setFilters } from '../../redux/filters/filterSlice';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { setPage } from '../../redux/campers/campersSlice';
 
 const FiltersBar = () => {
@@ -15,7 +15,7 @@ const FiltersBar = () => {
   const globalLocation = useSelector(selectLocation);
   const [localLocation, setLocalLocation] = useState(globalLocation);
 
-  const handleSearchClick = () => {
+  const handleSearchClick = useCallback(() => {
     if (!localLocation) return;
 
     if (localLocation) {
@@ -24,27 +24,32 @@ const FiltersBar = () => {
 
     dispatch(getAllCampers());
     setLocalLocation('');
-  };
+  }, [dispatch, localLocation]);
 
-  const handleResetFilters = () => {
+  const handleResetFilters = useCallback(() => {
     setLocalLocation('');
     dispatch(resetFilters());
     dispatch(getAllCampers());
     dispatch(setPage(1));
-  };
+  }, [dispatch]);
 
-  const handleKeyDow = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleSearchClick();
-    }
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        handleSearchClick();
+      }
 
-    if (e.key === 'Escape') {
-      handleResetFilters();
-    }
-  };
+      if (e.key === 'Escape') {
+        handleResetFilters();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleSearchClick, handleResetFilters]);
 
   return (
-    <aside onKeyDown={handleKeyDow}>
+    <aside>
       <Location value={localLocation} onLocationChange={setLocalLocation} />
       <Filters />
       <div className={s.filtersButtonContainer}>
