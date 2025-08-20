@@ -14,15 +14,18 @@ import CamperItem from '../CamperItem/CamperItem';
 import { getAllCampers } from '../../redux/campers/campersOperations';
 import { useAppDispatch } from '../../redux/hooks';
 import { resetCampers, setPage } from '../../redux/campers/campersSlice';
+import { selectAllFilters } from '../../redux/filters/filterSelectors';
 
 const CamperList = () => {
   const dispatch = useAppDispatch();
   const campersList = useSelector(selectCampers);
+  console.log(campersList);
   const isLoading = useSelector(selectIsLoading);
   const currentPage = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
   const totalItems = useSelector(selectTotalItems);
   const error = useSelector(selectError);
+  const filters = useSelector(selectAllFilters);
 
   const handleLoadMore = () => {
     if (currentPage < totalPages) {
@@ -31,17 +34,23 @@ const CamperList = () => {
   };
 
   useEffect(() => {
+    dispatch(setPage(1));
+
     if (currentPage === 1) {
       dispatch(resetCampers());
     }
     dispatch(getAllCampers());
-  }, [dispatch, currentPage]);
+  }, [dispatch, currentPage, filters]);
 
   const hasMoreItems = campersList.length < totalItems;
 
   return (
     <div>
       {isLoading && <h2>Loading...</h2>}
+
+      {!isLoading && campersList.length === 0 && (
+        <h2>Unfortunately, nothing was found for your request.</h2>
+      )}
 
       {!error && campersList.length > 0 && (
         <ul className={s.campersList}>

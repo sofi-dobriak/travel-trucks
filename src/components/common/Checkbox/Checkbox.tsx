@@ -14,6 +14,7 @@ export default function Checkbox({ icon, text, className, ...rest }: CheckboxPro
   const handleClick = () => {
     setIsChecked(prev => !prev);
   };
+
   return (
     <div className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
       <input

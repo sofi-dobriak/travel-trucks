@@ -27,8 +27,9 @@ export const slice = createSlice({
     setFilters: (state, action: PayloadAction<Partial<FiltersInitialState>>) => {
       return { ...state, ...action.payload };
     },
+    resetFilters: () => initialState,
   },
 });
 
-export const { setFilters } = slice.actions;
+export const { setFilters, resetFilters } = slice.actions;
 export const filtersReducer = slice.reducer;

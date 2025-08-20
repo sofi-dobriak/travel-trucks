@@ -1,3 +1,6 @@
-.buttonSearch {
-  max-width: 166px;
+.filtersButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
