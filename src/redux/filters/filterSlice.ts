@@ -1,8 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-interface FiltersInitialState {
+type CamperForm = 'van' | 'fullyIntegrated' | 'alcove' | '';
+
+export interface FiltersInitialState {
   location: string;
-  form: string;
+  form: CamperForm;
   transmission: string;
   AC: boolean;
   bathroom: boolean;

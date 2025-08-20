@@ -17,8 +17,10 @@ const FiltersBar = () => {
   const handleSearchClick = () => {
     if (!localLocation) return;
 
-    dispatch(resetFilters());
-    dispatch(setFilters({ location: localLocation }));
+    if (localLocation) {
+      dispatch(setFilters({ location: localLocation }));
+    }
+
     dispatch(getAllCampers());
     setLocalLocation('');
   };

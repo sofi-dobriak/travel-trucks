@@ -19,7 +19,6 @@ import { selectAllFilters } from '../../redux/filters/filterSelectors';
 const CamperList = () => {
   const dispatch = useAppDispatch();
   const campersList = useSelector(selectCampers);
-  console.log(campersList);
   const isLoading = useSelector(selectIsLoading);
   const currentPage = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
@@ -49,7 +48,7 @@ const CamperList = () => {
       {isLoading && <h2>Loading...</h2>}
 
       {!isLoading && campersList.length === 0 && (
-        <h2>Unfortunately, nothing was found for your request.</h2>
+        <h2>Unfortunately, nothing was found for your request</h2>
       )}
 
       {!error && campersList.length > 0 && (

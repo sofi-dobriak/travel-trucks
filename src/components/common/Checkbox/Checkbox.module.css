@@ -7,10 +7,10 @@
   cursor: pointer;
   max-height: 96px;
   padding: 16px;
+  transition: background-color var(--transition);
 
-  &:hover,
-  &:focus-within {
-    border-color: var(--hover-color);
+  &:hover {
+    background-color: #efefef;
   }
 
   &:has(input:checked) {
