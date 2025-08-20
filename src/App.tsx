@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
-import CampersPage from './pages/CampersPage/CampersPage';
-import CamperPage from './pages/CamperPage/CamperPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Header from './components/Header/Header';
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const CampersPage = lazy(() => import('./pages/CampersPage/CampersPage'));
+const CamperPage = lazy(() => import('./pages/CamperPage/CamperPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 function App() {
   return (
