@@ -33,8 +33,6 @@ const CamperList = () => {
   };
 
   useEffect(() => {
-    dispatch(setPage(1));
-
     if (currentPage === 1) {
       dispatch(resetCampers());
     }

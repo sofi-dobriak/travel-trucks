@@ -8,6 +8,7 @@ import { selectLocation } from '../../redux/filters/filterSelectors';
 import { useSelector } from 'react-redux';
 import { resetFilters, setFilters } from '../../redux/filters/filterSlice';
 import { useState } from 'react';
+import { setPage } from '../../redux/campers/campersSlice';
 
 const FiltersBar = () => {
   const dispatch = useAppDispatch();
@@ -29,6 +30,7 @@ const FiltersBar = () => {
     setLocalLocation('');
     dispatch(resetFilters());
     dispatch(getAllCampers());
+    dispatch(setPage(1));
   };
 
   const handleKeyDow = (e: React.KeyboardEvent) => {
