@@ -2,63 +2,38 @@ import { Link } from 'react-router-dom';
 import type { Camper } from '../../types/camper';
 import Label from '../common/Label/Label';
 import s from './CamperItem.module.css';
-import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import { useAppDispatch } from '../../redux/hooks';
+import { addFavouriteCamper, removeFavouriteCamper } from '../../redux/campers/campersSlice';
+import { useSelector } from 'react-redux';
+import { selectFavouritesCampers } from '../../redux/campers/campersSelector';
 
-const CamperItem = ({
-  name,
-  price,
-  rating,
-  location,
-  description,
-  transmission,
-  engine,
-  reviews,
-  gallery,
-  AC,
-  kitchen,
-  id,
-}: Camper) => {
-  const reviewsLength = reviews.length;
+const CamperItem = (props: Camper) => {
+  const dispatch = useAppDispatch();
+  const reviewsLength = props.reviews.length;
 
-  const getSavedFavourites = (): string[] => {
-    const saved = localStorage.getItem('favourite');
-    return saved ? JSON.parse(saved) : [];
-  };
+  const favouritesCampers = useSelector(selectFavouritesCampers);
+  const isFavourite = favouritesCampers.some(camper => camper.id === props.id);
 
-  const [isFavourite, setIsFavourite] = useState<boolean>(false);
-
-  useEffect(() => {
-    const favourites = getSavedFavourites();
-    setIsFavourite(favourites.includes(id));
-  }, [id]);
-
-  const handleAddToFavourite = () => {
-    const favourites = getSavedFavourites();
-
-    let updated: string[];
-
+  const handleToggleFavourite = () => {
     if (isFavourite) {
-      updated = favourites.filter(favId => favId !== id);
+      dispatch(removeFavouriteCamper(props.id));
     } else {
-      updated = [...favourites, id];
+      dispatch(addFavouriteCamper(props));
     }
-
-    localStorage.setItem('favourite', JSON.stringify(updated));
-    setIsFavourite(!isFavourite);
   };
 
   return (
     <div className={s.camperContainer}>
-      <img src={gallery[0].thumb} alt='A camper image' className={s.camperImage} />
+      <img src={props.gallery[0].thumb} alt='A camper image' className={s.camperImage} />
 
       <div className={s.camperTextContainer}>
         <div className={s.camperTitlePriceContainer}>
-          <h3 className={s.camperTitle}>{name}</h3>
+          <h3 className={s.camperTitle}>{props.name}</h3>
 
           <div className={s.camperPriceLikeContainer}>
-            <p className={s.camperPrice}>{price.toFixed(2)}</p>
-            <button className={s.camperLikeButton} onClick={handleAddToFavourite}>
+            <p className={s.camperPrice}>{props.price.toFixed(2)}</p>
+            <button className={s.camperLikeButton} onClick={handleToggleFavourite}>
               <svg
                 width={26}
                 height={24}
@@ -76,7 +51,7 @@ const CamperItem = ({
               <use href='/images/icons.svg#icon-star'></use>
             </svg>
             <p className={s.reviewCountText}>
-              {rating}({reviewsLength} Reviews)
+              {props.rating}({reviewsLength} Reviews)
             </p>
           </div>
 
@@ -84,32 +59,32 @@ const CamperItem = ({
             <svg width={16} height={16} className={s.camperMapIcon}>
               <use href='/images/icons.svg#icon-map'></use>
             </svg>
-            <p className={s.locationText}>{location}</p>
+            <p className={s.locationText}>{props.location}</p>
           </div>
         </div>
 
-        <p className={s.camperDescriptionText}>{description}</p>
+        <p className={s.camperDescriptionText}>{props.description}</p>
 
         <ul className={s.camperLabelList}>
           <li>
-            <Label icon='/images/icons.svg#icon-diagram' text={transmission} />
+            <Label icon='/images/icons.svg#icon-diagram' text={props.transmission} />
           </li>
           <li>
-            <Label icon='/images/icons.svg#icon-petrol' text={engine} />
+            <Label icon='/images/icons.svg#icon-petrol' text={props.engine} />
           </li>
-          {AC && (
+          {props.AC && (
             <li>
               <Label icon='/images/icons.svg#icon-wind' text='AC' />
             </li>
           )}
-          {kitchen && (
+          {props.kitchen && (
             <li>
               <Label icon='/images/icons.svg#icon-cup' text='kitchen' />
             </li>
           )}
         </ul>
 
-        <Link to={`/campers/${id}`} className={s.camperShowMoreButton}>
+        <Link to={`/campers/${props.id}`} className={s.camperShowMoreButton}>
           Show more
         </Link>
       </div>

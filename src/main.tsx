@@ -5,13 +5,16 @@ import 'modern-normalize/modern-normalize.css';
 import App from './App.tsx';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './redux/store.ts';
+import { persistor, store } from './redux/store.ts';
+import { PersistGate } from 'redux-persist/integration/react';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
       </BrowserRouter>
     </Provider>
   </StrictMode>

@@ -5,6 +5,7 @@ import type { ErrorResponse } from '../../types/errorResponse';
 
 interface CampersInitialState {
   campers: Camper[];
+  favouritesCampers: Camper[];
   oneCamper: Camper | null;
   isLoading: boolean;
   error: ErrorResponse | null;
@@ -15,6 +16,7 @@ interface CampersInitialState {
 
 const initialState: CampersInitialState = {
   campers: [],
+  favouritesCampers: [],
   oneCamper: null,
   isLoading: false,
   error: null,
@@ -30,7 +32,20 @@ const slice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
-    resetCampers: () => initialState,
+    resetCampers: state => {
+      return {
+        ...initialState,
+        favouritesCampers: state.favouritesCampers,
+      };
+    },
+    addFavouriteCamper: (state, action: PayloadAction<Camper>) => {
+      state.favouritesCampers.push(action.payload);
+    },
+    removeFavouriteCamper: (state, action: PayloadAction<string>) => {
+      state.favouritesCampers = state.favouritesCampers.filter(
+        camper => camper.id !== action.payload
+      );
+    },
   },
   extraReducers: builder => {
     builder
@@ -65,5 +80,5 @@ const slice = createSlice({
   },
 });
 
-export const { setPage, resetCampers } = slice.actions;
+export const { setPage, resetCampers, addFavouriteCamper, removeFavouriteCamper } = slice.actions;
 export const campersReducer = slice.reducer;
