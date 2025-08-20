@@ -12,10 +12,13 @@
   &:focus-within {
     border-color: var(--hover-color);
   }
+
+  &:has(input:checked) {
+    border-color: var(--hover-color);
+  }
 }
 
-
-.checkboxIcon {
+.checkboxContainer .checkboxIcon {
   fill: var(--icon-main-color);
   margin: auto;
   margin-bottom: 8px;
