@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import type { Camper } from '../../types/camper';
 import Label from '../common/Label/Label';
 import s from './CamperItem.module.css';
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 
 const CamperItem = ({
   name,
@@ -19,6 +21,33 @@ const CamperItem = ({
 }: Camper) => {
   const reviewsLength = reviews.length;
 
+  const getSavedFavourites = (): string[] => {
+    const saved = localStorage.getItem('favourite');
+    return saved ? JSON.parse(saved) : [];
+  };
+
+  const [isFavourite, setIsFavourite] = useState<boolean>(false);
+
+  useEffect(() => {
+    const favourites = getSavedFavourites();
+    setIsFavourite(favourites.includes(id));
+  }, [id]);
+
+  const handleAddToFavourite = () => {
+    const favourites = getSavedFavourites();
+
+    let updated: string[];
+
+    if (isFavourite) {
+      updated = favourites.filter(favId => favId !== id);
+    } else {
+      updated = [...favourites, id];
+    }
+
+    localStorage.setItem('favourite', JSON.stringify(updated));
+    setIsFavourite(!isFavourite);
+  };
+
   return (
     <div className={s.camperContainer}>
       <img src={gallery[0].thumb} alt='A camper image' className={s.camperImage} />
@@ -29,8 +58,12 @@ const CamperItem = ({
 
           <div className={s.camperPriceLikeContainer}>
             <p className={s.camperPrice}>{price.toFixed(2)}</p>
-            <button className={s.camperLikeButton}>
-              <svg width={26} height={24} className={s.camperLikeIcon}>
+            <button className={s.camperLikeButton} onClick={handleAddToFavourite}>
+              <svg
+                width={26}
+                height={24}
+                className={clsx(s.camperLikeIcon, isFavourite && s.favourite)}
+              >
                 <use href='/images/icons.svg#icon-heart'></use>
               </svg>
             </button>

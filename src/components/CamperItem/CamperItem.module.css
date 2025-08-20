@@ -48,6 +48,10 @@
   padding: 0;
 }
 
+.favourite {
+  fill: var(--hover-color);
+}
+
 .camperRatingLocationContainer {
   display: flex;
   align-items: start;
