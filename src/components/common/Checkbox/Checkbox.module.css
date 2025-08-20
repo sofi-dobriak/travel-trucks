@@ -10,7 +10,7 @@
   transition: background-color var(--transition);
 
   &:hover {
-    background-color: #efefef;
+    background-color: var(--input-bg-hover-color);
   }
 
   &:has(input:checked) {

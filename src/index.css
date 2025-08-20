@@ -42,6 +42,7 @@
   --input-border-color: #f7f7f7;
   --input-placeholder-text-color: #6c717b;
   --input-placeholder-text-color-hover: #101828;
+  --input-bg-hover-color: #efefef;
 
   /* icons */
   --icon-main-color: #101828;
@@ -66,6 +67,9 @@
   /* header */
   --header-bg-color: #f7f7f7;
   --header-border-color: #f2f4f7;
+
+  /* hero */
+  --hero-screen-bg-color: #000000a1;
 }
 
 * {

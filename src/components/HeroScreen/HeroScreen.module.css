@@ -1,6 +1,7 @@
 .heroSection {
   height: 100vh;
   background-image: url(/images/hero-bg-image.png);
+  background-color: var(--hero-screen-bg-color);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,6 +49,5 @@
 @media (min-resolution: 192dpi) {
   .heroSection {
     background-image: url(/images/hero-bg-image@2x.png);
-    background-size: cover 696px;
   }
 }
