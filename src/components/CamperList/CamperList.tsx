@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import CamperItem from '../CamperItem/CamperItem';
 import { getAllCampers } from '../../redux/campers/campersOperations';
 import { useAppDispatch } from '../../redux/hooks';
-import { setPage } from '../../redux/campers/campersSlice';
+import { resetCampers, setPage } from '../../redux/campers/campersSlice';
 
 const CamperList = () => {
   const dispatch = useAppDispatch();
@@ -31,6 +31,9 @@ const CamperList = () => {
   };
 
   useEffect(() => {
+    if (currentPage === 1) {
+      dispatch(resetCampers());
+    }
     dispatch(getAllCampers());
   }, [dispatch, currentPage]);
 

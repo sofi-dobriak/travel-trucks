@@ -30,10 +30,7 @@ const slice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
-    resetCampers: state => {
-      state.campers = [];
-      state.page = 1;
-    },
+    resetCampers: () => initialState,
   },
   extraReducers: builder => {
     builder
@@ -68,5 +65,5 @@ const slice = createSlice({
   },
 });
 
-export const { setPage } = slice.actions;
+export const { setPage, resetCampers } = slice.actions;
 export const campersReducer = slice.reducer;
