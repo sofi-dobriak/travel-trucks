@@ -7,6 +7,15 @@ import { useEffect } from 'react';
 import { getCamperById } from '../../redux/campers/campersOperations';
 import { selectError, selectIsLoading, selectOneCamper } from '../../redux/campers/campersSelector';
 import { useSelector } from 'react-redux';
+import clsx from 'clsx';
+
+interface AddActiveClassProps {
+  isActive: boolean;
+}
+const addActiveClass = ({ isActive }: AddActiveClassProps) => {
+  return clsx(s.camperLink, isActive && s.active);
+};
+
 const CamperPage = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams();
@@ -29,9 +38,13 @@ const CamperPage = () => {
         {!isLoading && !error && camper && (
           <>
             <DetailInfo {...camper} />
-            <nav>
-              <NavLink to='features'>Features</NavLink>
-              <NavLink to='reviews'>reviews</NavLink>
+            <nav className={s.camperNav}>
+              <NavLink to='features' className={addActiveClass}>
+                Features
+              </NavLink>
+              <NavLink to='reviews' className={addActiveClass}>
+                Reviews
+              </NavLink>
             </nav>
             <Outlet />
           </>
