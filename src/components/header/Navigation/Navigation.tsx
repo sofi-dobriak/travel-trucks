@@ -1,22 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import s from './Navigation.module.css';
-import clsx from 'clsx';
-
-interface ActiveClassProps {
-  isActive: boolean;
-}
-
-const setActiveClass = ({ isActive }: ActiveClassProps) => {
-  return clsx(s.navLink, isActive && s.active);
-};
+import { addActiveClass } from '../../../utils/addActiveClass';
 
 const Navigation = () => {
   return (
     <nav className={s.nav}>
-      <NavLink to='/' className={setActiveClass}>
+      <NavLink to='/' className={addActiveClass(s.navLink, s.active)}>
         Home
       </NavLink>
-      <NavLink to='/campers' className={setActiveClass}>
+      <NavLink to='/campers' className={addActiveClass(s.navLink, s.active)}>
         Catalog
       </NavLink>
     </nav>

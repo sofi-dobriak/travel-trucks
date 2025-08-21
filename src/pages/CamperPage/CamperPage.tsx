@@ -7,14 +7,7 @@ import { useEffect } from 'react';
 import { getCamperById } from '../../redux/campers/campersOperations';
 import { selectError, selectIsLoading, selectOneCamper } from '../../redux/campers/campersSelector';
 import { useSelector } from 'react-redux';
-import clsx from 'clsx';
-
-interface AddActiveClassProps {
-  isActive: boolean;
-}
-const addActiveClass = ({ isActive }: AddActiveClassProps) => {
-  return clsx(s.camperLink, isActive && s.active);
-};
+import { addActiveClass } from '../../utils/addActiveClass';
 
 const CamperPage = () => {
   const dispatch = useAppDispatch();
@@ -39,11 +32,14 @@ const CamperPage = () => {
           <>
             <DetailInfo {...camper} />
             <nav className={s.camperNav}>
-              <NavLink to='features' className={addActiveClass}>
+              <NavLink to='features' className={addActiveClass(s.camperLink, s.active)}>
                 Features
               </NavLink>
-              <NavLink to='reviews' className={addActiveClass}>
+              <NavLink to='reviews' className={addActiveClass(s.camperLink, s.active)}>
                 Reviews
+              </NavLink>
+              <NavLink to='favourites' className={addActiveClass(s.camperLink, s.active)}>
+                Favourites
               </NavLink>
             </nav>
             <Outlet />
