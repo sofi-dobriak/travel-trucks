@@ -17,3 +17,33 @@ export const selectTotalPages = createSelector(
     return Math.ceil(totalItems / limit);
   }
 );
+
+export const selectFeaturesList = createSelector(selectOneCamper, camper => {
+  if (!camper) return [];
+
+  return [
+    { key: 'transmission', text: camper?.transmission, icon: '#icon-diagram' },
+    { key: 'engine', text: camper?.engine, icon: '#icon-petrol' },
+    { key: 'AC', text: 'AC', icon: '#icon-wind' },
+    { key: 'bathroom', text: 'Bathroom', icon: '#icon-shower' },
+    { key: 'kitchen', text: 'Kitchen', icon: '#icon-cup' },
+    { key: 'TV', text: 'TV', icon: '#icon-tv' },
+    { key: 'radio', text: 'Radio', icon: '#icon-radio' },
+    { key: 'refrigerator', text: 'Refrigerator', icon: '#icon-fridge' },
+    { key: 'microwave', text: 'Microwave', icon: '#icon-microwave' },
+    { key: 'gas', text: 'Gas', icon: '#icon-gas-stove' },
+    { key: 'water', text: 'Water', icon: '#icon-water-drop' },
+  ];
+});
+
+export const selectVehiclesPropList = createSelector(selectOneCamper, camper => {
+  if (!camper) return [];
+
+  return [
+    { key: 'form', title: 'Form', value: camper?.form },
+    { key: 'length', title: 'Length', value: camper?.length },
+    { key: 'width', title: 'Width', value: camper?.width },
+    { key: 'height', title: 'Height', value: camper?.height },
+    { key: 'consumption', title: 'Consumption', value: camper?.consumption },
+  ];
+});
