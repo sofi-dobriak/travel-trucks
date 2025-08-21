@@ -10,7 +10,8 @@ import { selectFavouritesCampers } from '../../../redux/campers/campersSelector'
 
 const CamperItem = (props: Camper) => {
   const dispatch = useAppDispatch();
-  const reviewsLength = props.reviews.length;
+  const reviewsLength = props.reviews?.length || 0;
+  const formattedPrice = props.price.toFixed(2);
 
   const favouritesCampers = useSelector(selectFavouritesCampers);
   const isFavourite = favouritesCampers.some(camper => camper.id === props.id);
@@ -32,7 +33,7 @@ const CamperItem = (props: Camper) => {
           <h3 className={s.camperTitle}>{props.name}</h3>
 
           <div className={s.camperPriceLikeContainer}>
-            <p className={s.camperPrice}>{props.price.toFixed(2)}</p>
+            <p className={s.camperPrice}>{formattedPrice}</p>
             <button className={s.camperLikeButton} onClick={handleToggleFavourite}>
               <svg
                 width={26}

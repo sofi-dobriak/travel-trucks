@@ -2,7 +2,8 @@ import s from './DetailInfo.module.css';
 import type { Camper } from '../../../types/camper';
 
 const DetailInfo = (props: Camper) => {
-  const reviewsLength = props.reviews.length;
+  const reviewsLength = props.reviews?.length || 0;
+  const formattedPrice = props.price.toFixed(2);
 
   return (
     <div>
@@ -26,18 +27,19 @@ const DetailInfo = (props: Camper) => {
         </div>
       </div>
 
-      <p className={s.camperPrice}>{props.price.toFixed(2)}</p>
+      <p className={s.camperPrice}>{formattedPrice}</p>
 
       <ul className={s.camperImagesList}>
-        {props.gallery.map((image, index) => (
-          <li key={index}>
-            <img
-              src={image.original}
-              alt={`${props.name} camper image`}
-              className={s.camperImage}
-            />
-          </li>
-        ))}
+        {props.gallery?.length > 0 &&
+          props.gallery.map((image, index) => (
+            <li key={index}>
+              <img
+                src={image.original}
+                alt={`${props.name} camper - photo ${index + 1} of ${props.gallery.length}`}
+                className={s.camperImage}
+              />
+            </li>
+          ))}
       </ul>
 
       <p className={s.camperDescription}>{props.description}</p>

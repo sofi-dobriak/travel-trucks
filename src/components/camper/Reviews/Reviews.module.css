@@ -1,0 +1,11 @@
+.reviewsList {
+  max-width: 630px;
+}
+
+.reviewsItem {
+  margin-bottom: 44px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,13 @@
+.reviewsRatingList {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.emptyStar {
+  fill: #f2f4f7;
+}
+
+.fillStar {
+  fill: #ffc531;
+}
