@@ -1,4 +1,4 @@
-import TextInput from '../common/TextInput/TextInput';
+import TextInput from '../../common/TextInput/TextInput';
 import s from './Location.module.css';
 
 interface LocationProps {

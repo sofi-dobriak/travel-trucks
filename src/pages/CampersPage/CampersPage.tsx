@@ -1,6 +1,6 @@
-import CamperList from '../../components/CamperList/CamperList';
-import Container from '../../components/Container/Container';
-import FiltersBar from '../../components/FiltersBar/FiltersBar';
+import CamperList from '../../components/camper/CamperList/CamperList';
+import Container from '../../components/common/Container/Container';
+import FiltersBar from '../../components/filters/FiltersBar/FiltersBar';
 import s from './CampersPage.module.css';
 
 const CampersPage = () => {

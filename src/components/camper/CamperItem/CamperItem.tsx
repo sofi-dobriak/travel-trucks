@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import type { Camper } from '../../types/camper';
-import Label from '../common/Label/Label';
+import type { Camper } from '../../../types/camper';
+import Label from '../../common/Label/Label';
 import s from './CamperItem.module.css';
 import clsx from 'clsx';
-import { useAppDispatch } from '../../redux/hooks';
-import { addFavouriteCamper, removeFavouriteCamper } from '../../redux/campers/campersSlice';
+import { useAppDispatch } from '../../../redux/hooks';
+import { addFavouriteCamper, removeFavouriteCamper } from '../../../redux/campers/campersSlice';
 import { useSelector } from 'react-redux';
-import { selectFavouritesCampers } from '../../redux/campers/campersSelector';
+import { selectFavouritesCampers } from '../../../redux/campers/campersSelector';
 
 const CamperItem = (props: Camper) => {
   const dispatch = useAppDispatch();

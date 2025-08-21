@@ -1,4 +1,4 @@
-import HeroScreen from '../../components/HeroScreen/HeroScreen';
+import HeroScreen from '../../components/hero/HeroScreen/HeroScreen';
 
 const HomePage = () => {
   return (

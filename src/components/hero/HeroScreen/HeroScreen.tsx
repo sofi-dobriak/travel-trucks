@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Container from '../Container/Container';
+import Container from '../../common/Container/Container';
 import s from './HeroScreen.module.css';
 
 const HeroScreen = () => {

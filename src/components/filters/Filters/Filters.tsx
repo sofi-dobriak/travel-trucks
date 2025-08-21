@@ -1,4 +1,4 @@
-import Checkbox from '../common/Checkbox/Checkbox';
+import Checkbox from '../../common/Checkbox/Checkbox';
 import s from './Filters.module.css';
 
 const Filters = () => {

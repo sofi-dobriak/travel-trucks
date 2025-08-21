@@ -6,15 +6,15 @@ import {
   selectPage,
   selectTotalItems,
   selectTotalPages,
-} from '../../redux/campers/campersSelector';
+} from '../../../redux/campers/campersSelector';
 import s from './CamperList.module.css';
-import Button from '../common/Button/Button';
+import Button from '../../common/Button/Button';
 import { useSelector } from 'react-redux';
 import CamperItem from '../CamperItem/CamperItem';
-import { getAllCampers } from '../../redux/campers/campersOperations';
-import { useAppDispatch } from '../../redux/hooks';
-import { resetCampers, setPage } from '../../redux/campers/campersSlice';
-import { selectAllFilters } from '../../redux/filters/filterSelectors';
+import { getAllCampers } from '../../../redux/campers/campersOperations';
+import { useAppDispatch } from '../../../redux/hooks';
+import { resetCampers, setPage } from '../../../redux/campers/campersSlice';
+import { selectAllFilters } from '../../../redux/filters/filterSelectors';
 
 const CamperList = () => {
   const dispatch = useAppDispatch();

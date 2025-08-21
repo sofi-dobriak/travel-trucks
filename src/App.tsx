@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header';
+import Header from './components/header/Header/Header';
 import { lazy, Suspense } from 'react';
-import Features from './components/Features/Features';
-import Reviews from './components/Reviews/Reviews';
+import Features from './components/camper/Features/Features';
+import Reviews from './components/camper/Reviews/Reviews';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const CampersPage = lazy(() => import('./pages/CampersPage/CampersPage'));

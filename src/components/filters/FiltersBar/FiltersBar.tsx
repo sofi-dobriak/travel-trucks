@@ -1,14 +1,14 @@
 import Location from '../Location/Location';
 import Filters from '../Filters/Filters';
-import Button from '../common/Button/Button';
+import Button from '../../common/Button/Button';
 import s from './FiltersBar.module.css';
-import { useAppDispatch } from '../../redux/hooks';
-import { getAllCampers } from '../../redux/campers/campersOperations';
-import { selectLocation } from '../../redux/filters/filterSelectors';
+import { useAppDispatch } from '../../../redux/hooks';
+import { getAllCampers } from '../../../redux/campers/campersOperations';
+import { selectLocation } from '../../../redux/filters/filterSelectors';
 import { useSelector } from 'react-redux';
-import { resetFilters, setFilters } from '../../redux/filters/filterSlice';
+import { resetFilters, setFilters } from '../../../redux/filters/filterSlice';
 import { useCallback, useEffect, useState } from 'react';
-import { setPage } from '../../redux/campers/campersSlice';
+import { setPage } from '../../../redux/campers/campersSlice';
 
 const FiltersBar = () => {
   const dispatch = useAppDispatch();
