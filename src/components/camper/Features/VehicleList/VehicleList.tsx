@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { selectOneCamper, selectVehiclesPropList } from '../../../redux/campers/campersSelector';
 import s from './VehicleList.module.css';
-import type { VehicleDetailsItem } from '../../../types/features';
+import { selectOneCamper, selectVehiclesPropList } from '../../../../redux/campers/campersSelector';
+import type { VehicleDetailsItem } from '../../../../types/features';
 
 const VehicleList = () => {
   const camper = useSelector(selectOneCamper);

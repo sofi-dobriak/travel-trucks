@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import { selectFeaturesList, selectOneCamper } from '../../../redux/campers/campersSelector';
 import s from './FeaturesList.module.css';
-import Label from '../../common/Label/Label';
-import { getFeatIcons } from '../../../utils/getFeatIcons';
 import sprite from '/images/icons.svg';
-import type { FeatureItem } from '../../../types/features';
+import { selectFeaturesList, selectOneCamper } from '../../../../redux/campers/campersSelector';
+import type { FeatureItem } from '../../../../types/features';
+import Label from '../../../common/Label/Label';
+import { getFeatIcons } from '../../../../utils/getFeatIcons';
 
 const FeaturesList = () => {
   const camper = useSelector(selectOneCamper);

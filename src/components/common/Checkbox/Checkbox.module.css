@@ -13,6 +13,10 @@
     background-color: var(--input-bg-hover-color);
   }
 
+  &:focus-within {
+    border-color: var(--hover-color);
+  }
+
   &:has(input:checked) {
     border-color: var(--hover-color);
   }

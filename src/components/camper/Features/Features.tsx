@@ -1,6 +1,6 @@
 import s from './Features.module.css';
-import FeaturesList from '../FeaturesList/FeaturesList';
-import VehicleList from '../VehicleList/VehicleList';
+import FeaturesList from './FeaturesList/FeaturesList';
+import VehicleList from './VehicleList/VehicleList';
 
 const Features = () => {
   return (

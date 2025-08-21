@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { selectOneCamper } from '../../../redux/campers/campersSelector';
 import s from './ReviewItem.module.css';
-import type { CamperReview } from '../../../types/camper';
+import type { CamperReview } from '../../../../types/camper';
+import { selectOneCamper } from '../../../../redux/campers/campersSelector';
 import RatingList from '../RatingList/RatingList';
 
 const ReviewItem = ({ reviewer_name, reviewer_rating, comment }: CamperReview) => {

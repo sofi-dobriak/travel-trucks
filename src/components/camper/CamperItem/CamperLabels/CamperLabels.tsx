@@ -15,13 +15,11 @@ const CamperLabels = (camper: Camper) => {
 
   return (
     <ul className={s.camperLabelList}>
-      {firstFourLabels
-        .filter(({ key, text }) => camper[key as keyof typeof camper] && text)
-        .map(({ key, text, icon }) => (
-          <li key={key}>
-            <Label icon={`${sprite}${icon}`} text={text} />
-          </li>
-        ))}
+      {firstFourLabels.map(({ key, text, icon }) => (
+        <li key={key}>
+          <Label icon={`${sprite}${icon}`} text={text} />
+        </li>
+      ))}
     </ul>
   );
 };

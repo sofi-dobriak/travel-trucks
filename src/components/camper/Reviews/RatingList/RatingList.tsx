@@ -1,4 +1,4 @@
-import { RATING } from '../../../constants/constants';
+import { RATING } from '../../../../constants/constants';
 import s from './RatingList.module.css';
 
 interface RatingListProps {
