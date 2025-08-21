@@ -1,0 +1,21 @@
+.featuresContainer {
+  border-radius: 10px;
+  padding: 44px 80px;
+  background-color: var(--header-bg-color);
+  max-width: 630px;
+}
+
+.featCamperList {
+  max-width: 540px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 100px;
+}
+
+.featuresContainer .featIcons {
+  fill: none;
+  stroke: var(--icon-main-color)
+}
+
+.featSubTitle {}
