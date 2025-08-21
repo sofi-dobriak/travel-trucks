@@ -4,7 +4,7 @@ import s from './Label.module.css';
 export interface LabelProps {
   icon: string;
   text: string | boolean;
-  className: string;
+  className?: string;
 }
 
 export default function Label({ icon, text, className }: LabelProps) {
