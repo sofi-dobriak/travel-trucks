@@ -49,7 +49,7 @@ const FiltersBar = () => {
   }, [handleSearchClick, handleResetFilters]);
 
   return (
-    <aside>
+    <aside className={s.filterBar}>
       <Location value={localLocation} onLocationChange={setLocalLocation} />
       <Filters />
       <div className={s.filtersButtonContainer}>

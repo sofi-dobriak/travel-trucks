@@ -1,4 +1,3 @@
-// import clsx from 'clsx';
 import clsx from 'clsx';
 import type { FilterConfig } from '../../../config/filtersConfig';
 import Checkbox from '../../common/Checkbox/Checkbox';

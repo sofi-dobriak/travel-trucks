@@ -1,3 +1,9 @@
+.filterBar {
+  position: fixed;
+  top: 100px;
+  left: 142px;
+}
+
 .filtersButtonContainer {
   display: flex;
   flex-direction: row;
