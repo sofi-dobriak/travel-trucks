@@ -1,0 +1,17 @@
+.camperRatingLocationContainer {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.camperRatingContainer,
+.camperLocationContainer {
+  display: flex;
+  align-items: start;
+  gap: 4px;
+}
+
+.camperStarIcon {
+  fill: var(--icon-start-active-color);
+}

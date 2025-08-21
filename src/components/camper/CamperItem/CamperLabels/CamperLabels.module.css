@@ -1,0 +1,8 @@
+.camperLabelList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 524px;
+  margin-bottom: 24px;
+}
