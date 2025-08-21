@@ -7,12 +7,13 @@
   cursor: pointer;
   max-height: 96px;
   padding: 16px;
-  transition: background-color var(--transition);
+  transition: all var(--transition);
 
   &:hover {
     background-color: var(--input-bg-hover-color);
   }
 
+  &:hover,
   &:focus-within {
     border-color: var(--hover-color);
   }

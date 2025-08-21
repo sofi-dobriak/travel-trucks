@@ -7,18 +7,8 @@ const Filters = () => {
     <>
       <h2 className={s.filtersTitle}>Filters</h2>
 
-      <FilterGroup
-        title='Vehicle equipment'
-        filters={EQUIPMENT_FILTERS}
-        className={s.equipmentTitle}
-      />
-
-      <FilterGroup
-        title='Vehicle type'
-        filters={TYPE_FILTERS}
-        className={s.typeTitle}
-        checkboxClassName={(s.typeList, s.grid2x2)}
-      />
+      <FilterGroup title='Vehicle equipment' filters={EQUIPMENT_FILTERS} />
+      <FilterGroup title='Vehicle type' filters={TYPE_FILTERS} />
     </>
   );
 };
