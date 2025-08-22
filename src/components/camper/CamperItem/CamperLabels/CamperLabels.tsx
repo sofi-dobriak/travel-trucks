@@ -6,16 +6,21 @@ import type { Camper } from '../../../../types/camper';
 const CamperLabels = (camper: Camper) => {
   if (!camper) return null;
 
-  const firstFourLabels = [
-    { key: 'transmission', text: camper?.transmission, icon: '#icon-diagram' },
-    { key: 'engine', text: camper?.engine, icon: '#icon-petrol' },
-    { key: 'AC', text: 'AC', icon: '#icon-wind' },
-    { key: 'bathroom', text: 'bathroom', icon: '#icon-shower' },
+  const allPossibleLabels = [
+    { key: 'transmission' as keyof Camper, text: camper.transmission, icon: '#icon-diagram' },
+    { key: 'engine' as keyof Camper, text: camper.engine, icon: '#icon-petrol' },
+    { key: 'AC' as keyof Camper, text: 'AC', icon: '#icon-wind' },
+    { key: 'kitchen' as keyof Camper, text: 'Kitchen', icon: '#icon-cup' },
   ];
+
+  const availableLabels = allPossibleLabels.filter(label => {
+    const value = camper[label.key];
+    return typeof value === 'boolean' ? value : Boolean(value);
+  });
 
   return (
     <ul className={s.camperLabelList}>
-      {firstFourLabels.map(({ key, text, icon }) => (
+      {availableLabels.map(({ key, text, icon }) => (
         <li key={key}>
           <Label icon={`${sprite}${icon}`} text={text} />
         </li>

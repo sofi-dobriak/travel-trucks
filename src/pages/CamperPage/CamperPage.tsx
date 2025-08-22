@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 import { addActiveClass } from '../../utils/addActiveClass';
 import BookingForm from '../../components/form/BookingForm/BookingForm';
 import { IoIosArrowBack } from 'react-icons/io';
+import Loader from '../../components/common/Loader/Loader';
+import InfoMessage from '../../components/common/InfoMessage/InfoMessage';
 
 const CamperPage = () => {
   const dispatch = useAppDispatch();
@@ -27,8 +29,10 @@ const CamperPage = () => {
   return (
     <div className={s.camperPage}>
       <Container>
-        {isLoading && <h2>Loading...</h2>}
-        {!isLoading && error && <h2>Ooops... Something went wrong. Please, try again</h2>}
+        {isLoading && <Loader />}
+        {!isLoading && error && (
+          <InfoMessage>Ooops... Something went wrong. Please, try again</InfoMessage>
+        )}
 
         {!isLoading && !error && camper && (
           <>

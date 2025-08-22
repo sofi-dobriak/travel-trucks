@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFavCampersByIdAndTitle } from '../../../redux/campers/campersSelector';
 import { MdDeleteOutline } from 'react-icons/md';
 import { removeFavouriteCamper } from '../../../redux/campers/campersSlice';
+import InfoMessage from '../../common/InfoMessage/InfoMessage';
 
 const Favourites = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const Favourites = () => {
 
   return (
     <div className={s.favContainer}>
-      {!haveFavCampers && <h2>No fav campers</h2>}
+      {!haveFavCampers && <InfoMessage>No fav campers</InfoMessage>}
       {haveFavCampers && (
         <ul className={s.favCampersList}>
           {favCampers.map(({ id, name }) => (

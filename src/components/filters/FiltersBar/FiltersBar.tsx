@@ -23,7 +23,6 @@ const FiltersBar = () => {
     }
 
     dispatch(getAllCampers());
-    setLocalLocation('');
   }, [dispatch, localLocation]);
 
   const handleResetFilters = useCallback(() => {

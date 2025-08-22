@@ -1,12 +1,19 @@
+.campersListContainer {
+  margin-left: 420px;
+}
+
 .campersList {
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .camperItem {
   margin-bottom: 32px;
 
   &:last-child {
-    margin-bottom: 40px;
+    margin-bottom: 0;
   }
 }
 

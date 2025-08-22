@@ -15,6 +15,8 @@ import { getAllCampers } from '../../../redux/campers/campersOperations';
 import { useAppDispatch } from '../../../redux/hooks';
 import { resetCampers, setPage } from '../../../redux/campers/campersSlice';
 import { selectAllFilters } from '../../../redux/filters/filterSelectors';
+import Loader from '../../common/Loader/Loader';
+import InfoMessage from '../../common/InfoMessage/InfoMessage';
 
 const CamperList = () => {
   const dispatch = useAppDispatch();
@@ -42,11 +44,11 @@ const CamperList = () => {
   const hasMoreItems = campersList.length < totalItems;
 
   return (
-    <div>
-      {isLoading && <h2>Loading...</h2>}
+    <div className={s.campersListContainer}>
+      {isLoading && <Loader />}
 
       {!isLoading && campersList.length === 0 && (
-        <h2>Unfortunately, nothing was found for your request</h2>
+        <InfoMessage>Unfortunately, nothing was found for your request</InfoMessage>
       )}
 
       {!error && campersList.length > 0 && (
