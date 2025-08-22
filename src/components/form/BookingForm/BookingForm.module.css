@@ -3,6 +3,7 @@
   border-radius: 10px;
   padding: 44px;
   max-width: 641px;
+  min-height: 616px;
 }
 
 .formTitle {
@@ -18,7 +19,7 @@
 }
 
 .formInputContainer {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   position: relative;
 }
 
