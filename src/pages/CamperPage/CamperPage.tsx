@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
 import s from './CamperPage.module.css';
 import Container from '../../components/common/Container/Container';
 import DetailInfo from '../../components/camper/DetailInfo/DetailInfo';
@@ -9,6 +9,7 @@ import { selectError, selectIsLoading, selectOneCamper } from '../../redux/campe
 import { useSelector } from 'react-redux';
 import { addActiveClass } from '../../utils/addActiveClass';
 import BookingForm from '../../components/form/BookingForm/BookingForm';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const CamperPage = () => {
   const dispatch = useAppDispatch();
@@ -31,6 +32,10 @@ const CamperPage = () => {
 
         {!isLoading && !error && camper && (
           <>
+            <Link to='/campers' className={s.goBackIconLinkContainer}>
+              <IoIosArrowBack className={s.goBackIcon} />
+              <span className={s.goBackText}>Go back</span>
+            </Link>
             <DetailInfo {...camper} />
             <nav className={s.camperNav}>
               <NavLink to='features' className={addActiveClass(s.camperLink, s.active)}>
