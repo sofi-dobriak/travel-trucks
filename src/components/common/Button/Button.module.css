@@ -29,11 +29,5 @@
 }
 
 .disabled {
-  background-color: var(--input-placeholder-text-color);
   cursor: not-allowed;
-
-  .buttonPrimary:hover &,
-  .buttonPrimary:focus & {
-    background-color: var(--input-placeholder-text-color);
-  }
 }
