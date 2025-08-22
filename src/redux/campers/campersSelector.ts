@@ -47,3 +47,7 @@ export const selectVehiclesPropList = createSelector(selectOneCamper, camper => 
     { key: 'consumption', title: 'Consumption', value: camper?.consumption },
   ];
 });
+
+export const selectFavCampersByIdAndTitle = createSelector(selectFavouritesCampers, favCampers => {
+  return favCampers.filter(favCamper => favCamper.id && favCamper.name);
+});
