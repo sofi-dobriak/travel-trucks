@@ -1,3 +1,4 @@
+import { createSelector } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
 
 export const selectAllFilters = (state: RootState) => state.filters;
@@ -9,3 +10,13 @@ export const selectAC = (state: RootState) => state.filters.AC;
 export const selectBathroom = (state: RootState) => state.filters.bathroom;
 export const selectKitchen = (state: RootState) => state.filters.kitchen;
 export const selectTV = (state: RootState) => state.filters.TV;
+
+export const selectHasActiveFilters = createSelector(
+  [selectLocation, selectAllFilters],
+  (location, filters) => {
+    return (
+      Boolean(location) ||
+      Object.values(filters).some(value => (typeof value === 'boolean' ? value : Boolean(value)))
+    );
+  }
+);

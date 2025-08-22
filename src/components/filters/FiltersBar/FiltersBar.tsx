@@ -4,7 +4,7 @@ import Button from '../../common/Button/Button';
 import s from './FiltersBar.module.css';
 import { useAppDispatch } from '../../../redux/hooks';
 import { getAllCampers } from '../../../redux/campers/campersOperations';
-import { selectLocation } from '../../../redux/filters/filterSelectors';
+import { selectHasActiveFilters, selectLocation } from '../../../redux/filters/filterSelectors';
 import { useSelector } from 'react-redux';
 import { resetFilters, setFilters } from '../../../redux/filters/filterSlice';
 import { useCallback, useEffect, useState } from 'react';
@@ -13,6 +13,7 @@ import { setPage } from '../../../redux/campers/campersSlice';
 const FiltersBar = () => {
   const dispatch = useAppDispatch();
   const globalLocation = useSelector(selectLocation);
+  const hasActiveFilters = useSelector(selectHasActiveFilters);
   const [localLocation, setLocalLocation] = useState(globalLocation);
 
   const handleSearchClick = useCallback(() => {
@@ -26,11 +27,13 @@ const FiltersBar = () => {
   }, [dispatch, localLocation]);
 
   const handleResetFilters = useCallback(() => {
+    if (!hasActiveFilters && !localLocation) return;
+
     setLocalLocation('');
     dispatch(resetFilters());
     dispatch(getAllCampers());
     dispatch(setPage(1));
-  }, [dispatch]);
+  }, [dispatch, hasActiveFilters, localLocation]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
