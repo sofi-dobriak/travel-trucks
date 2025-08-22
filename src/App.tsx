@@ -3,7 +3,7 @@ import { lazy, Suspense } from 'react';
 import Features from './components/camper/Features/Features';
 import Reviews from './components/camper/Reviews/Reviews';
 import Favourites from './components/camper/Favourites/Favourites';
-import SharedLayout from './components/SharedLayout/SharedLayout';
+import SharedLayout from './components/common/SharedLayout/SharedLayout';
 import Loader from './components/common/Loader/Loader';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));

@@ -5,10 +5,10 @@ import { addActiveClass } from '../../../utils/addActiveClass';
 const Navigation = () => {
   return (
     <nav className={s.nav}>
-      <NavLink to='/' className={addActiveClass(s.navLink, s.active)}>
+      <NavLink to='/' end className={addActiveClass(s.navLink, s.active)}>
         Home
       </NavLink>
-      <NavLink to='/campers' className={addActiveClass(s.navLink, s.active)}>
+      <NavLink to='/campers' end className={addActiveClass(s.navLink, s.active)}>
         Catalog
       </NavLink>
     </nav>

@@ -1,8 +1,8 @@
 import type { Camper } from '../../../../types/camper';
 import s from './CamperRating.module.css';
 
-const CamperRating = (props: Camper) => {
-  const reviewsLength = props.reviews?.length || 0;
+const CamperRating = (camper: Camper) => {
+  const reviewsLength = camper.reviews?.length || 0;
 
   return (
     <div className={s.camperRatingLocationContainer}>
@@ -11,7 +11,7 @@ const CamperRating = (props: Camper) => {
           <use href='/images/icons.svg#icon-star'></use>
         </svg>
         <p className={s.reviewCountText}>
-          {props.rating}({reviewsLength} Reviews)
+          {camper.rating}({reviewsLength} Reviews)
         </p>
       </div>
 
@@ -19,7 +19,7 @@ const CamperRating = (props: Camper) => {
         <svg width={16} height={16} className={s.camperMapIcon}>
           <use href='/images/icons.svg#icon-map'></use>
         </svg>
-        <p className={s.locationText}>{props.location}</p>
+        <p className={s.locationText}>{camper.location}</p>
       </div>
     </div>
   );
