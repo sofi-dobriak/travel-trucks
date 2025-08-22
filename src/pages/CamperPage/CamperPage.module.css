@@ -27,6 +27,11 @@
   padding-bottom: 24px;
   transition: border-color var(--transition);
   border-bottom: 5px solid transparent;
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover-color);
+  }
 }
 
 .active {
@@ -35,6 +40,6 @@
 
 .featFormContainer {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 40px;
 }
