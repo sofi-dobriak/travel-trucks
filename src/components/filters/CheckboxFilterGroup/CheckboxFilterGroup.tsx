@@ -1,14 +1,14 @@
 import type { FilterConfig } from '../../../config/filtersConfig';
 import Checkbox from '../Checkbox/Checkbox';
-import s from './FilterGroup.module.css';
+import s from './CheckboxFilterGroup.module.css';
 import sprite from '/images/icons.svg';
 
-interface FilterGroupProps {
+interface CheckboxFilterGroupProps {
   title: string;
   filters: FilterConfig[];
 }
 
-const FilterGroup = ({ title, filters }: FilterGroupProps) => {
+const CheckboxFilterGroup = ({ title, filters }: CheckboxFilterGroupProps) => {
   return (
     <div>
       <h3 className={s.equipmentTitle}>{title}</h3>
@@ -23,4 +23,4 @@ const FilterGroup = ({ title, filters }: FilterGroupProps) => {
   );
 };
 
-export default FilterGroup;
+export default CheckboxFilterGroup;

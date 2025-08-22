@@ -1,11 +1,11 @@
-import clsx from 'clsx';
-import s from './Checkbox.module.css';
-import { useAppDispatch } from '../../../redux/hooks';
 import { useSelector } from 'react-redux';
 import { setFilters, type FiltersInitialState } from '../../../redux/filters/filterSlice';
+import { useAppDispatch } from '../../../redux/hooks';
 import type { RootState } from '../../../redux/store';
+import s from './Radio.module.css';
+import clsx from 'clsx';
 
-export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon: string;
   text: string;
   className?: string;
@@ -13,14 +13,7 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   value?: string;
 }
 
-export default function Checkbox({
-  icon,
-  text,
-  className,
-  filterKey,
-  value,
-  ...rest
-}: CheckboxProps) {
+const Radio = ({ icon, text, className, filterKey, value, ...rest }: RadioProps) => {
   const dispatch = useAppDispatch();
   const filterValue = useSelector((state: RootState) => state.filters[filterKey]);
 
@@ -36,19 +29,21 @@ export default function Checkbox({
   };
 
   return (
-    <div className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
+    <div className={clsx(s.radioContainer, className)} onClick={handleClick}>
       <input
+        type='radio'
         id={rest.id}
-        type='checkbox'
-        name='checkbox'
+        name='radioType'
         className='visually-hidden'
         checked={isChecked}
         {...rest}
       />
-      <svg className={s.checkboxIcon} width={32} height={32}>
+      <svg className={s.radioIcon} width={32} height={32}>
         <use href={icon}></use>
       </svg>
-      <p className={s.checkboxText}>{text}</p>
+      <p className={s.radioText}>{text}</p>
     </div>
   );
-}
+};
+
+export default Radio;

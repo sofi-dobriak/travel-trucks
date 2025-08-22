@@ -1,0 +1,17 @@
+.equipmentTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--button-border-color);
+  margin-bottom: 24px;
+  max-width: 360px;
+}
+
+.equipmentList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  max-width: 360px;
+  margin-bottom: 32px;
+}

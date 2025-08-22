@@ -1,4 +1,3 @@
-.equipmentTitle,
 .typeTitle {
   font-weight: 600;
   font-size: 20px;
@@ -9,7 +8,6 @@
   max-width: 360px;
 }
 
-.equipmentList,
 .typeList {
   display: flex;
   flex-wrap: wrap;
@@ -18,10 +16,6 @@
   margin-bottom: 32px;
 }
 
-.typeList {
-  margin-bottom: 40px;
-}
-
 .grid2x2 {
-  padding: 7px 16px;
+  padding: 8px 12px;
 }
