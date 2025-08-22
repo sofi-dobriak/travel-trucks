@@ -3,7 +3,6 @@ import axios, { AxiosError } from 'axios';
 import type { Camper } from '../../types/camper';
 import type { ErrorResponse, ThunkConfig } from '../../types/errorResponse';
 import type { RootState } from '../store';
-import toast from 'react-hot-toast';
 
 const instance = axios.create({
   baseURL: 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io',
@@ -42,7 +41,6 @@ export const getAllCampers = createAsyncThunk<GetAllCampersResponse, void, Thunk
     } catch (err) {
       const error = err as AxiosError<ErrorResponse>;
       const message = error?.response?.data?.message || 'Unknown error';
-      toast.error('Oops... Something went wrong');
       return thunkAPI.rejectWithValue({ message });
     }
   }
@@ -57,7 +55,6 @@ export const getCamperById = createAsyncThunk<Camper, string, ThunkConfig>(
     } catch (err) {
       const error = err as AxiosError<ErrorResponse>;
       const message = error?.response?.data?.message || 'Unknown error';
-      toast.error('Oops... Something went wrong');
       return thunkAPI.rejectWithValue({ message });
     }
   }

@@ -37,4 +37,9 @@
 .disabled {
   cursor: not-allowed;
   background-color: var(--disabled-color);
+
+  &:hover,
+  &:focus {
+    background-color: var(--disabled-color);
+  }
 }

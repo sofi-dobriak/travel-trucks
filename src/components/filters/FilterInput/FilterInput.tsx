@@ -50,6 +50,7 @@ export default function FilterInput({
         className='visually-hidden'
         checked={isChecked}
         {...rest}
+        readOnly
       />
       <svg className={s.checkboxIcon} width={32} height={32}>
         <use href={icon}></use>
