@@ -14,19 +14,24 @@
 }
 
 .favCampersItem {
-  padding: 12px;
   border-radius: 8px;
-  min-width: 220px;
   border: 1px solid var(--button-border-color);
-  transition: border-color var(--transition);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 8px;
+
+  transition: border-color var(--transition);
 
   &:hover,
   &:focus {
     border-color: var(--hover-color)
   }
+}
+
+.favCampersLink {
+  padding: 12px 0;
+  min-width: 220px;
 }
 
 .deleteLinkButton {
