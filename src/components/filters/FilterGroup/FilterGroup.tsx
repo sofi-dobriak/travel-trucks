@@ -1,5 +1,5 @@
 import type { FilterConfig } from '../../../config/filtersConfig';
-import Checkbox from '../../common/Checkbox/Checkbox';
+import Checkbox from '../Checkbox/Checkbox';
 import s from './FilterGroup.module.css';
 import sprite from '/images/icons.svg';
 
