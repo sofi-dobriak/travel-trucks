@@ -27,6 +27,7 @@
 :root {
   --background-color: #fff;
   --hover-color: #d84343;
+  --disabled-color: #f07b7b;
 
   /* fonts */
   --font-family: 'Inter', sans-serif;

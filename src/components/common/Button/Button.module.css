@@ -30,4 +30,5 @@
 
 .disabled {
   cursor: not-allowed;
+  background-color: var(--disabled-color);
 }
