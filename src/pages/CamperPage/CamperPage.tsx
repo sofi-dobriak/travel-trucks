@@ -8,6 +8,7 @@ import { getCamperById } from '../../redux/campers/campersOperations';
 import { selectError, selectIsLoading, selectOneCamper } from '../../redux/campers/campersSelector';
 import { useSelector } from 'react-redux';
 import { addActiveClass } from '../../utils/addActiveClass';
+import BookingForm from '../../components/form/BookingForm/BookingForm';
 
 const CamperPage = () => {
   const dispatch = useAppDispatch();
@@ -42,7 +43,10 @@ const CamperPage = () => {
                 Favourites
               </NavLink>
             </nav>
-            <Outlet />
+            <div className={s.featFormContainer}>
+              <Outlet />
+              <BookingForm />
+            </div>
           </>
         )}
       </Container>

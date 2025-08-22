@@ -32,3 +32,9 @@
 .active {
   border-color: var(--hover-color);
 }
+
+.featFormContainer {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
