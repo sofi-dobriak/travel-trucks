@@ -26,6 +26,7 @@ const Button = ({
       className={clsx(className, s.button, {
         [s.buttonPrimary]: variant === 'primary',
         [s.buttonSecondary]: variant === 'secondary',
+        [s.disabled]: rest.disabled,
       })}
     >
       {children}

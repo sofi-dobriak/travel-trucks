@@ -15,11 +15,6 @@
   color: var(--button-text-color);
   background-color: var(--button-bg-color);
   transition: background-color var(--transition);
-
-  &:hover,
-  &:focus {
-    background-color: var(--hover-color);
-  }
 }
 
 .buttonSecondary {
@@ -30,5 +25,15 @@
   &:hover,
   &:focus {
     border-color: var(--hover-color);
+  }
+}
+
+.disabled {
+  background-color: var(--input-placeholder-text-color);
+  cursor: not-allowed;
+
+  .buttonPrimary:hover &,
+  .buttonPrimary:focus & {
+    background-color: var(--input-placeholder-text-color);
   }
 }

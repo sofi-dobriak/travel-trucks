@@ -57,8 +57,12 @@ const FiltersBar = () => {
       <Location value={localLocation} onLocationChange={setLocalLocation} />
       <Filters />
       <div className={s.filtersButtonContainer}>
-        <Button onClick={handleSearchClick}>Search</Button>
-        <Button onClick={handleResetFilters}>Reset filters</Button>
+        <Button onClick={handleSearchClick} disabled={!hasActiveFilters && !localLocation}>
+          Search
+        </Button>
+        <Button onClick={handleResetFilters} disabled={!hasActiveFilters && !localLocation}>
+          Reset filters
+        </Button>
       </div>
     </aside>
   );
