@@ -30,7 +30,9 @@ const validationSchema = Yup.object({
 const BookingForm = () => {
   const handleSubmit = (values: InitialFormValues, actions: FormikHelpers<InitialFormValues>) => {
     console.log(values);
-    toast.success('Your booking has been successfully submitted!');
+    toast.success('Your booking has been successfully submitted!', {
+      position: 'top-right',
+    });
     actions.resetForm();
   };
 
