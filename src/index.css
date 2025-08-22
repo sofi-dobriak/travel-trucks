@@ -70,6 +70,9 @@
 
   /* hero */
   --hero-screen-bg-color: #000000a1;
+
+  /* error */
+  --error-text-color: #e44848
 }
 
 * {
