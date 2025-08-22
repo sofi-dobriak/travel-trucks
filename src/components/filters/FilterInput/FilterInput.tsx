@@ -1,11 +1,15 @@
 import clsx from 'clsx';
-import s from './Checkbox.module.css';
+import s from './FilterInput.module.css';
 import { useAppDispatch } from '../../../redux/hooks';
 import { useSelector } from 'react-redux';
 import { setFilters, type FiltersInitialState } from '../../../redux/filters/filterSlice';
 import type { RootState } from '../../../redux/store';
 
-export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export type InputTypes = 'checkbox' | 'radio';
+
+export interface FilterInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  type: InputTypes;
+  name: string;
   icon: string;
   text: string;
   className?: string;
@@ -13,14 +17,16 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   value?: string;
 }
 
-export default function Checkbox({
+export default function FilterInput({
+  type,
+  name,
   icon,
   text,
   className,
   filterKey,
   value,
   ...rest
-}: CheckboxProps) {
+}: FilterInputProps) {
   const dispatch = useAppDispatch();
   const filterValue = useSelector((state: RootState) => state.filters[filterKey]);
 
@@ -39,8 +45,8 @@ export default function Checkbox({
     <div className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
       <input
         id={rest.id}
-        type='checkbox'
-        name='checkbox'
+        type={type}
+        name={name}
         className='visually-hidden'
         checked={isChecked}
         {...rest}

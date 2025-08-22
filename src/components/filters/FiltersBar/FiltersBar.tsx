@@ -17,6 +17,8 @@ const FiltersBar = () => {
   const [localLocation, setLocalLocation] = useState(globalLocation);
 
   const handleSearchClick = useCallback(() => {
+    dispatch(resetFilters());
+
     if (!localLocation) return;
 
     if (localLocation) {
