@@ -51,3 +51,8 @@ export const selectVehiclesPropList = createSelector(selectOneCamper, camper => 
 export const selectFavCampersByIdAndTitle = createSelector(selectFavouritesCampers, favCampers => {
   return favCampers.filter(favCamper => favCamper.id && favCamper.name);
 });
+
+export const selectAllCities = createSelector(selectCampers, campers => {
+  const location = campers.map(camper => camper.location);
+  return [...new Set(location)];
+});

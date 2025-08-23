@@ -73,7 +73,12 @@
   --hero-screen-bg-color: #000000a1;
 
   /* error */
-  --error-text-color: #e44848
+  --error-text-color: #e44848;
+
+  /* dropdown */
+  --dropdown-bg-color: #fff;
+  --dropdown-bg-color-hover: #fff;
+  --dropdown-border-color: #ccc;
 }
 
 * {
