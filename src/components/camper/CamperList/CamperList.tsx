@@ -19,8 +19,10 @@ import Loader from '../../common/Loader/Loader';
 import InfoMessage from '../../common/InfoMessage/InfoMessage';
 import { IoMdOptions } from 'react-icons/io';
 import type { FilterModalProps } from '../../filters/FilterModal/FilterModal';
+import { useLocation } from 'react-router-dom';
 
 const CamperList = ({ setModalIsOpen }: FilterModalProps) => {
+  const location = useLocation();
   const dispatch = useAppDispatch();
   const campersList = useSelector(selectCampers);
   const isLoading = useSelector(selectIsLoading);
@@ -37,9 +39,11 @@ const CamperList = ({ setModalIsOpen }: FilterModalProps) => {
   };
 
   useEffect(() => {
-    if (currentPage === 1) {
-      dispatch(resetCampers());
-    }
+    dispatch(resetCampers());
+    dispatch(setPage(1));
+  }, [dispatch, filters]);
+
+  useEffect(() => {
     dispatch(getAllCampers());
   }, [dispatch, currentPage, filters]);
 
