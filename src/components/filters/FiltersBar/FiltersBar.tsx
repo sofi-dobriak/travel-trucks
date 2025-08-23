@@ -27,18 +27,15 @@ const FiltersBar = () => {
   const [localFilters, setLocalFilters] = useState<FiltersInitialState>(globalFilters);
 
   const handleSearchClick = useCallback(() => {
-    dispatch(setPage(1));
     dispatch(resetFilters());
+    dispatch(setPage(1));
 
     const filtersToApply = { ...localFilters };
     if (localLocation) {
       filtersToApply.location = localLocation;
     }
 
-    if (Object.keys(filtersToApply).length > 0) {
-      dispatch(setFilters(filtersToApply));
-    }
-
+    dispatch(setFilters(filtersToApply));
     dispatch(getAllCampers());
   }, [dispatch, localLocation, localFilters]);
 
@@ -46,11 +43,20 @@ const FiltersBar = () => {
     if (!hasActiveFilters && !localLocation) return;
 
     setLocalLocation('');
-    setLocalFilters(globalFilters);
+    setLocalFilters({
+      location: '',
+      form: '',
+      transmission: '',
+      AC: false,
+      bathroom: false,
+      kitchen: false,
+      TV: false,
+    });
+
     dispatch(resetFilters());
     dispatch(getAllCampers());
     dispatch(setPage(1));
-  }, [dispatch, hasActiveFilters, localLocation, globalFilters]);
+  }, [dispatch, hasActiveFilters, localLocation, setLocalFilters]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

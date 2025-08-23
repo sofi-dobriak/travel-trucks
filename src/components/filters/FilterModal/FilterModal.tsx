@@ -34,31 +34,36 @@ const FilterModal = ({ modalIsOpen, setModalIsOpen }: FilterModalProps) => {
   const [localFilters, setLocalFilters] = useState<FiltersInitialState>(globalFilters);
 
   const handleSearchClick = useCallback(() => {
-    dispatch(setPage(1));
     dispatch(resetFilters());
+    dispatch(setPage(1));
 
     const filtersToApply = { ...localFilters };
     if (localLocation) {
       filtersToApply.location = localLocation;
     }
 
-    if (Object.keys(filtersToApply).length > 0) {
-      dispatch(setFilters(filtersToApply));
-    }
-
+    dispatch(setFilters(filtersToApply));
     dispatch(getAllCampers());
-    setModalIsOpen(false);
-  }, [dispatch, localLocation, localFilters, setModalIsOpen]);
+  }, [dispatch, localLocation, localFilters]);
 
   const handleResetFilters = useCallback(() => {
     if (!hasActiveFilters && !localLocation) return;
 
     setLocalLocation('');
+    setLocalFilters({
+      location: '',
+      form: '',
+      transmission: '',
+      AC: false,
+      bathroom: false,
+      kitchen: false,
+      TV: false,
+    });
+
     dispatch(resetFilters());
     dispatch(getAllCampers());
     dispatch(setPage(1));
-    setModalIsOpen(false);
-  }, [dispatch, hasActiveFilters, localLocation, setModalIsOpen]);
+  }, [dispatch, hasActiveFilters, localLocation, setLocalFilters]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -77,8 +82,14 @@ const FilterModal = ({ modalIsOpen, setModalIsOpen }: FilterModalProps) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleSearchClick, handleResetFilters, setModalIsOpen]);
 
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setModalIsOpen(false);
+    }
+  };
+
   return (
-    <div className={clsx(s.modalBackdrop, modalIsOpen && s.visible)}>
+    <div className={clsx(s.modalBackdrop, modalIsOpen && s.visible)} onClick={handleBackdropClick}>
       <div className={s.modalWindow}>
         <button className={s.closeFilterModalButton} onClick={() => setModalIsOpen(false)}>
           <IoCloseOutline className={s.closeFilterModalIcon} />
