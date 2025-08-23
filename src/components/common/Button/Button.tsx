@@ -6,10 +6,11 @@ type ButtonType = 'button' | 'submit' | 'reset';
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
-  children: string;
+  children: React.ReactNode;
   className?: string;
   variant?: ButtonVariant;
   type?: ButtonType;
+  icon?: Element;
 }
 
 const Button = ({

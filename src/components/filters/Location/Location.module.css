@@ -35,8 +35,6 @@
   display: flex;
 }
 
-/* dropdown */
-
 .locationInputWrapper {
   position: relative;
 }
@@ -62,5 +60,11 @@
 
   &:hover {
     background-color: var(--dropdown-bg-color-hover);
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  .locationContainer {
+    margin-bottom: 24px;
   }
 }

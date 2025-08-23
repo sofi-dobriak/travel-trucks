@@ -17,8 +17,10 @@ import { resetCampers, setPage } from '../../../redux/campers/campersSlice';
 import { selectAllFilters } from '../../../redux/filters/filterSelectors';
 import Loader from '../../common/Loader/Loader';
 import InfoMessage from '../../common/InfoMessage/InfoMessage';
+import { IoMdOptions } from 'react-icons/io';
+import type { FilterModalProps } from '../../filters/FilterModal/FilterModal';
 
-const CamperList = () => {
+const CamperList = ({ setModalIsOpen }: FilterModalProps) => {
   const dispatch = useAppDispatch();
   const campersList = useSelector(selectCampers);
   const isLoading = useSelector(selectIsLoading);
@@ -46,6 +48,11 @@ const CamperList = () => {
   return (
     <div className={s.campersListContainer}>
       {isLoading && <Loader />}
+
+      <Button className={s.filterButton} variant='secondary' onClick={() => setModalIsOpen(true)}>
+        <IoMdOptions className={s.filterButtonIcon} />
+        Filters
+      </Button>
 
       {!isLoading && campersList.length === 0 && (
         <InfoMessage>Unfortunately, nothing was found for your request</InfoMessage>

@@ -1,9 +1,7 @@
 import clsx from 'clsx';
 import s from './FilterInput.module.css';
-import { useAppDispatch } from '../../../redux/hooks';
-import { useSelector } from 'react-redux';
-import { setFilters, type FiltersInitialState } from '../../../redux/filters/filterSlice';
-import type { RootState } from '../../../redux/store';
+import type { Dispatch, SetStateAction } from 'react';
+import type { FiltersInitialState } from '../../../redux/filters/filterSlice';
 
 export type InputTypes = 'checkbox' | 'radio';
 
@@ -15,6 +13,8 @@ export interface FilterInputProps extends React.InputHTMLAttributes<HTMLInputEle
   className?: string;
   filterKey: keyof FiltersInitialState;
   value?: string;
+  localFilters: FiltersInitialState;
+  setLocalFilters: Dispatch<SetStateAction<FiltersInitialState>>;
 }
 
 export default function FilterInput({
@@ -25,22 +25,27 @@ export default function FilterInput({
   className,
   filterKey,
   value,
+  localFilters,
+  setLocalFilters,
   ...rest
 }: FilterInputProps) {
-  const dispatch = useAppDispatch();
-  const filterValue = useSelector((state: RootState) => state.filters[filterKey]);
+  const filterValue = localFilters?.[filterKey];
 
-  const isChecked = value ? filterValue === value : filterValue === true;
+  let isChecked = false;
+  if (typeof filterValue === 'boolean') {
+    isChecked = filterValue;
+  } else if (typeof filterValue === 'string') {
+    isChecked = filterValue === value;
+  }
 
   const handleClick = () => {
-    if (value) {
+    if (type === 'radio') {
       const newValue = isChecked ? '' : value;
-      dispatch(setFilters({ [filterKey]: newValue }));
+      setLocalFilters(prev => ({ ...prev, [filterKey]: newValue }));
     } else {
-      dispatch(setFilters({ [filterKey]: !isChecked }));
+      setLocalFilters(prev => ({ ...prev, [filterKey]: !isChecked }));
     }
   };
-
   return (
     <div className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
       <input

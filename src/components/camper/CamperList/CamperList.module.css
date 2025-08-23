@@ -1,5 +1,6 @@
 .campersListContainer {
-  margin-left: 420px;
+  margin-left: 548px;
+  max-width: 728px;
 }
 
 .campersList {
@@ -21,4 +22,27 @@
   display: block;
   margin: 0 auto;
   max-width: 146px;
+}
+
+.campersListContainer .filterButton {
+  display: none;
+}
+
+@media screen and (max-width:1439px) {
+  .campersListContainer {
+    margin-left: 0;
+  }
+
+  .campersListContainer .filterButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    max-width: 166px;
+  }
+
+  .filterButtonIcon {
+    font-size: 20px;
+  }
 }

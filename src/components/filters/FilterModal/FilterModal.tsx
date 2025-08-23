@@ -1,7 +1,7 @@
+import s from './FilterModal.module.css';
 import Location from '../Location/Location';
 import Filters from '../Filters/Filters';
 import Button from '../../common/Button/Button';
-import s from './FiltersBar.module.css';
 import { useAppDispatch } from '../../../redux/hooks';
 import { getAllCampers } from '../../../redux/campers/campersOperations';
 import {
@@ -17,8 +17,15 @@ import {
 } from '../../../redux/filters/filterSlice';
 import { useCallback, useEffect, useState } from 'react';
 import { setPage } from '../../../redux/campers/campersSlice';
+import { IoCloseOutline } from 'react-icons/io5';
+import clsx from 'clsx';
 
-const FiltersBar = () => {
+export interface FilterModalProps {
+  modalIsOpen?: boolean;
+  setModalIsOpen: (modalIsOpen: boolean) => void;
+}
+
+const FilterModal = ({ modalIsOpen, setModalIsOpen }: FilterModalProps) => {
   const dispatch = useAppDispatch();
   const globalLocation = useSelector(selectLocation);
   const hasActiveFilters = useSelector(selectHasActiveFilters);
@@ -40,45 +47,55 @@ const FiltersBar = () => {
     }
 
     dispatch(getAllCampers());
-  }, [dispatch, localLocation, localFilters]);
+    setModalIsOpen(false);
+  }, [dispatch, localLocation, localFilters, setModalIsOpen]);
 
   const handleResetFilters = useCallback(() => {
     if (!hasActiveFilters && !localLocation) return;
 
     setLocalLocation('');
-    setLocalFilters(globalFilters);
     dispatch(resetFilters());
     dispatch(getAllCampers());
     dispatch(setPage(1));
-  }, [dispatch, hasActiveFilters, localLocation, globalFilters]);
+    setModalIsOpen(false);
+  }, [dispatch, hasActiveFilters, localLocation, setModalIsOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         handleSearchClick();
+        setModalIsOpen(false);
       }
 
       if (e.key === 'Escape') {
         handleResetFilters();
+        setModalIsOpen(false);
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleSearchClick, handleResetFilters]);
+  }, [handleSearchClick, handleResetFilters, setModalIsOpen]);
 
   return (
-    <aside className={s.filterBar}>
-      <Location value={localLocation} onLocationChange={setLocalLocation} />
-      <Filters localFilters={localFilters} setLocalFilters={setLocalFilters} />
-      <div className={s.filtersButtonContainer}>
-        <Button onClick={handleSearchClick}>Search</Button>
-        <Button onClick={handleResetFilters} variant='secondary'>
-          Reset filters
-        </Button>
+    <div className={clsx(s.modalBackdrop, modalIsOpen && s.visible)}>
+      <div className={s.modalWindow}>
+        <button className={s.closeFilterModalButton} onClick={() => setModalIsOpen(false)}>
+          <IoCloseOutline className={s.closeFilterModalIcon} />
+        </button>
+        <div className={s.filterModalContent}>
+          <Location value={localLocation} onLocationChange={setLocalLocation} />
+          <Filters localFilters={localFilters} setLocalFilters={setLocalFilters} />
+          <div className={s.filtersButtonContainer}>
+            <Button onClick={handleSearchClick}>Search</Button>
+            <Button onClick={handleResetFilters} variant='secondary'>
+              Reset
+            </Button>
+          </div>
+        </div>
       </div>
-    </aside>
+    </div>
   );
 };
 
-export default FiltersBar;
+export default FilterModal;

@@ -9,10 +9,6 @@
   padding: 16px;
   transition: all var(--transition);
 
-  &:hover {
-    background-color: var(--input-bg-hover-color);
-  }
-
   &:hover,
   &:focus-within {
     border-color: var(--hover-color);

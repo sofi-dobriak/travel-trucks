@@ -2,6 +2,7 @@
   position: fixed;
   top: 100px;
   left: 142px;
+  background-color: #fff;
 }
 
 .filtersButtonContainer {
@@ -9,4 +10,10 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
+}
+
+@media screen and (max-width:1439px) {
+  .filterBar {
+    display: none;
+  }
 }

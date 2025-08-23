@@ -1,4 +1,4 @@
-.equipmentTitle {
+.equipmentTypesTitle {
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
@@ -8,10 +8,21 @@
   max-width: 360px;
 }
 
-.equipmentList {
+.equipmentTypesList {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 12px;
   max-width: 360px;
   margin-bottom: 32px;
+}
+
+@media screen and (max-width: 1439px) {
+  .equipmentTypesTitle {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .equipmentTypesList {
+    margin-bottom: 24px;
+  }
 }
