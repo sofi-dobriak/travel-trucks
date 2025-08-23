@@ -44,7 +44,8 @@ const FilterModal = ({ modalIsOpen, setModalIsOpen }: FilterModalProps) => {
 
     dispatch(setFilters(filtersToApply));
     dispatch(getAllCampers());
-  }, [dispatch, localLocation, localFilters]);
+    setModalIsOpen(false);
+  }, [dispatch, localLocation, localFilters, setModalIsOpen]);
 
   const handleResetFilters = useCallback(() => {
     if (!hasActiveFilters && !localLocation) return;
@@ -63,7 +64,8 @@ const FilterModal = ({ modalIsOpen, setModalIsOpen }: FilterModalProps) => {
     dispatch(resetFilters());
     dispatch(getAllCampers());
     dispatch(setPage(1));
-  }, [dispatch, hasActiveFilters, localLocation, setLocalFilters]);
+    setModalIsOpen(false);
+  }, [dispatch, hasActiveFilters, localLocation, setLocalFilters, setModalIsOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
