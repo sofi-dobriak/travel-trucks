@@ -49,10 +49,12 @@ const CamperList = ({ setModalIsOpen }: FilterModalProps) => {
     <div className={s.campersListContainer}>
       {isLoading && <Loader />}
 
-      <Button className={s.filterButton} variant='secondary' onClick={() => setModalIsOpen(true)}>
-        <IoMdOptions className={s.filterButtonIcon} />
-        Filters
-      </Button>
+      {!isLoading && (
+        <Button className={s.filterButton} variant='secondary' onClick={() => setModalIsOpen(true)}>
+          <IoMdOptions className={s.filterButtonIcon} />
+          Filters
+        </Button>
+      )}
 
       {!isLoading && campersList.length === 0 && (
         <InfoMessage>Unfortunately, nothing was found for your request</InfoMessage>
