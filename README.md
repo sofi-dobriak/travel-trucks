@@ -4,7 +4,6 @@ A web application for **TravelTrucks**, a company that rents campers.
 Users can browse the camper catalog, filter results, add campers to favorites, view detailed information with reviews, and make bookings.  
 
 🔗 [Live Demo](https://travel-trucks-eosin-iota.vercel.app/)  
-📂 [GitHub Repository](https://github.com/sofi-dobriak/travel-trucks)
 
 ---
 
