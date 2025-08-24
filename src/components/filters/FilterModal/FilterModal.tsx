@@ -21,11 +21,11 @@ import { IoCloseOutline } from 'react-icons/io5';
 import clsx from 'clsx';
 
 export interface FilterModalProps {
-  modalIsOpen?: boolean;
-  setModalIsOpen: (modalIsOpen: boolean) => void;
+  modalIsOpen: boolean;
+  handleCloseModal: () => void;
 }
 
-const FilterModal = ({ modalIsOpen, setModalIsOpen }: FilterModalProps) => {
+const FilterModal = ({ modalIsOpen, handleCloseModal }: FilterModalProps) => {
   const dispatch = useAppDispatch();
   const globalLocation = useSelector(selectLocation);
   const hasActiveFilters = useSelector(selectHasActiveFilters);
@@ -44,8 +44,8 @@ const FilterModal = ({ modalIsOpen, setModalIsOpen }: FilterModalProps) => {
 
     dispatch(setFilters(filtersToApply));
     dispatch(getAllCampers());
-    setModalIsOpen(false);
-  }, [dispatch, localLocation, localFilters, setModalIsOpen]);
+    handleCloseModal();
+  }, [dispatch, localLocation, localFilters, handleCloseModal]);
 
   const handleResetFilters = useCallback(() => {
     if (!hasActiveFilters && !localLocation) return;
@@ -64,36 +64,36 @@ const FilterModal = ({ modalIsOpen, setModalIsOpen }: FilterModalProps) => {
     dispatch(resetFilters());
     dispatch(getAllCampers());
     dispatch(setPage(1));
-    setModalIsOpen(false);
-  }, [dispatch, hasActiveFilters, localLocation, setLocalFilters, setModalIsOpen]);
+    handleCloseModal();
+  }, [dispatch, hasActiveFilters, localLocation, setLocalFilters, handleCloseModal]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         handleSearchClick();
-        setModalIsOpen(false);
+        handleCloseModal();
       }
 
       if (e.key === 'Escape') {
         handleResetFilters();
-        setModalIsOpen(false);
+        handleCloseModal();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleSearchClick, handleResetFilters, setModalIsOpen]);
+  }, [handleSearchClick, handleResetFilters, handleCloseModal]);
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
-      setModalIsOpen(false);
+      handleCloseModal();
     }
   };
 
   return (
     <div className={clsx(s.modalBackdrop, modalIsOpen && s.visible)} onClick={handleBackdropClick}>
       <div className={s.modalWindow}>
-        <button className={s.closeFilterModalButton} onClick={() => setModalIsOpen(false)}>
+        <button className={s.closeFilterModalButton} onClick={handleCloseModal}>
           <IoCloseOutline className={s.closeFilterModalIcon} />
         </button>
         <div className={s.filterModalContent}>

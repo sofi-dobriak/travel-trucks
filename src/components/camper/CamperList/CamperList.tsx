@@ -18,9 +18,12 @@ import { selectAllFilters } from '../../../redux/filters/filterSelectors';
 import Loader from '../../common/Loader/Loader';
 import InfoMessage from '../../common/InfoMessage/InfoMessage';
 import { IoMdOptions } from 'react-icons/io';
-import type { FilterModalProps } from '../../filters/FilterModal/FilterModal';
 
-const CamperList = ({ setModalIsOpen }: FilterModalProps) => {
+export interface CampersListProps {
+  handleOpenModal: () => void;
+}
+
+const CamperList = ({ handleOpenModal }: CampersListProps) => {
   const dispatch = useAppDispatch();
   const campersList = useSelector(selectCampers);
   const isLoading = useSelector(selectIsLoading);
@@ -52,7 +55,7 @@ const CamperList = ({ setModalIsOpen }: FilterModalProps) => {
       {isLoading && <Loader />}
 
       {!isLoading && (
-        <Button className={s.filterButton} variant='secondary' onClick={() => setModalIsOpen(true)}>
+        <Button className={s.filterButton} variant='secondary' onClick={handleOpenModal}>
           <IoMdOptions className={s.filterButtonIcon} />
           Filters
         </Button>

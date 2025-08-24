@@ -8,13 +8,23 @@ import s from './CampersPage.module.css';
 const CampersPage = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const handleOpenModal = () => {
+    setModalIsOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+    document.body.style.overflow = '';
+  };
+
   return (
     <div className={s.campersPageContainer}>
       <Container>
         <div className={s.campersFiltersListContainer}>
-          <FilterModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+          <FilterModal modalIsOpen={modalIsOpen} handleCloseModal={handleCloseModal} />
           <FiltersBar />
-          <CamperList modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
+          <CamperList handleOpenModal={handleOpenModal} />
         </div>
       </Container>
     </div>
