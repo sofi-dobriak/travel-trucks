@@ -46,6 +46,7 @@ export default function FilterInput({
       setLocalFilters(prev => ({ ...prev, [filterKey]: !isChecked }));
     }
   };
+
   return (
     <div className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
       <input

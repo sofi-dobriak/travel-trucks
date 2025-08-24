@@ -47,8 +47,10 @@
   background: var(--dropdown-bg-color);
   border: 1px solid var(--dropdown-border-color);
   border-top: none;
-  border-radius: 0 0 4px 4px;
+  border-bottom: none;
+  border-radius: 4px;
   max-height: 200px;
+  max-width: 360px;
   overflow-y: auto;
   z-index: 10;
 }
@@ -57,9 +59,11 @@
   padding: 8px 12px;
   cursor: pointer;
   border-bottom: 1px solid var(--dropdown-border-color);
+  transition: all var(--transition);
 
   &:hover {
-    background-color: var(--dropdown-bg-color-hover);
+    background-color: var(--hover-color);
+    color: var(--secondary-text-color)
   }
 }
 

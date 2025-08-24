@@ -28,7 +28,7 @@ const Location = ({ value, onLocationChange }: LocationProps) => {
   };
 
   const handleInputBlur = () => {
-    setTimeout(() => setIsDropdownOpen(false), 150);
+    setTimeout(() => setIsDropdownOpen(false), 100);
   };
 
   return (
