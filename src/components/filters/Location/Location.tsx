@@ -53,7 +53,12 @@ const Location = ({ value, onLocationChange }: LocationProps) => {
         {isDropdownOpen && (
           <ul className={s.citiesDropdown}>
             {filterCities.map((city, index) => (
-              <li key={index} onClick={() => handleCitySelect(city)} className={s.cityItem}>
+              <li
+                key={index}
+                onClick={() => handleCitySelect(city)}
+                onMouseDown={() => handleCitySelect(city)}
+                className={s.cityItem}
+              >
                 {city}
               </li>
             ))}
