@@ -13,3 +13,15 @@
   border-bottom: 1px solid var(--button-border-color);
   margin-bottom: 24px;
 }
+
+@media screen and (max-width:1439px) {
+  .featuresContainer {
+    max-width: 704px;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .featuresContainer {
+    padding: 22px 40px;
+  }
+}

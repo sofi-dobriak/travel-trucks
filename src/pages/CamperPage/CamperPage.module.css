@@ -64,5 +64,13 @@
 .featFormContainer {
   display: flex;
   align-items: start;
+  flex-wrap: wrap;
   gap: 40px;
+}
+
+@media screen and (max-width: 380px) {
+  .camperNav {
+    max-width: 330px;
+    overflow-x: auto;
+  }
 }

@@ -9,3 +9,9 @@
     margin-bottom: 0;
   }
 }
+
+@media screen and (max-width:1439px) {
+  .reviewsList {
+    max-width: 704px;
+  }
+}
