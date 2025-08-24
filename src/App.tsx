@@ -22,7 +22,6 @@ function App() {
               <Route path='/campers' element={<CampersPage />} />
               <Route path='/campers/:id' element={<CamperPage />}>
                 <Route index element={<Features />} />
-                <Route path='features' element={<Features />} />
                 <Route path='reviews' element={<Reviews />} />
                 <Route path='favourites' element={<Favourites />} />
               </Route>

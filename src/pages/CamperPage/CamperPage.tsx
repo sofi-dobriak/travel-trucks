@@ -42,7 +42,7 @@ const CamperPage = () => {
             </Link>
             <DetailInfo {...camper} />
             <nav className={s.camperNav}>
-              <NavLink to='features' className={addActiveClass(s.camperLink, s.active)}>
+              <NavLink end to='' className={addActiveClass(s.camperLink, s.active)}>
                 Features
               </NavLink>
               <NavLink to='reviews' className={addActiveClass(s.camperLink, s.active)}>
