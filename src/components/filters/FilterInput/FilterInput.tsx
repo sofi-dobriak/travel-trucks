@@ -48,7 +48,10 @@ export default function FilterInput({
   };
 
   return (
-    <div className={clsx(s.checkboxContainer, className)} onClick={handleClick}>
+    <div
+      className={clsx(s.checkboxContainer, className, value === 'fullyIntegrated' && s.grid2x2)}
+      onClick={handleClick}
+    >
       <input
         id={rest.id}
         type={type}

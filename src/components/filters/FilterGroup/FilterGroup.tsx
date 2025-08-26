@@ -5,12 +5,14 @@ import type { InputTypes } from '../FilterInput/FilterInput';
 import FilterInput from '../FilterInput/FilterInput';
 import type { Dispatch, SetStateAction } from 'react';
 import type { FiltersInitialState } from '../../../redux/filters/filterSlice';
+import clsx from 'clsx';
 
 interface FilterGroupProps {
   type: InputTypes;
   name: string;
   title: string;
   filters: FilterConfig[];
+  className?: string;
   localFilters: FiltersInitialState;
   setLocalFilters: Dispatch<SetStateAction<FiltersInitialState>>;
 }
@@ -22,11 +24,12 @@ const FilterGroup = ({
   name,
   localFilters,
   setLocalFilters,
+  className,
 }: FilterGroupProps) => {
   return (
     <div>
       <h3 className={s.equipmentTypesTitle}>{title}</h3>
-      <ul className={s.equipmentTypesList}>
+      <ul className={clsx(s.equipmentTypesList, className)}>
         {filters.map(({ text, icon, id, filterKey, value }) => (
           <li key={id}>
             <FilterInput
