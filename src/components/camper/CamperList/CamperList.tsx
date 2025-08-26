@@ -16,8 +16,8 @@ import { useAppDispatch } from '../../../redux/hooks';
 import { resetCampers, setPage } from '../../../redux/campers/campersSlice';
 import { selectAllFilters } from '../../../redux/filters/filterSelectors';
 import Loader from '../../common/Loader/Loader';
-import InfoMessage from '../../common/InfoMessage/InfoMessage';
 import { IoMdOptions } from 'react-icons/io';
+import EmptyBlock from '../../common/EmptyBlock/EmptyBlock';
 
 export interface CampersListProps {
   handleOpenModal: () => void;
@@ -62,7 +62,7 @@ const CamperList = ({ handleOpenModal }: CampersListProps) => {
       )}
 
       {!isLoading && campersList.length === 0 && (
-        <InfoMessage>Unfortunately, nothing was found for your request</InfoMessage>
+        <EmptyBlock>Unfortunately, nothing was found for your request</EmptyBlock>
       )}
 
       {!error && campersList.length > 0 && (

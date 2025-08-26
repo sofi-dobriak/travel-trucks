@@ -3,4 +3,8 @@
   font-weight: var(--font-weight);
   text-align: center;
   width: 100%;
+
+  color: var(--additional-text-color);
+  font-size: 20px;
+  text-align: center;
 }
