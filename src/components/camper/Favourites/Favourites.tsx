@@ -17,7 +17,7 @@ const Favourites = () => {
   };
 
   return (
-    <div className={s.favContainer}>
+    <div className={s.favContainer} id='favourites'>
       {!haveFavCampers && <InfoMessage>No fav campers</InfoMessage>}
       {haveFavCampers && (
         <ul className={s.favCampersList}>

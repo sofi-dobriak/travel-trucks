@@ -7,7 +7,7 @@ const Reviews = () => {
   if (!camper) return null;
 
   return (
-    <ul className={s.reviewsList}>
+    <ul className={s.reviewsList} id='reviews'>
       {camper.reviews.map((review, index) => (
         <li key={index} className={s.reviewsItem}>
           <ReviewItem {...review} />

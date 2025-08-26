@@ -4,7 +4,7 @@ import VehicleList from './VehicleList/VehicleList';
 
 const Features = () => {
   return (
-    <div className={s.featuresContainer}>
+    <div className={s.featuresContainer} id='features'>
       <FeaturesList />
       <h3 className={s.featSubTitle}>Vehicle details</h3>
       <VehicleList />

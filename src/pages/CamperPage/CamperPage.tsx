@@ -20,6 +20,17 @@ const CamperPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
+  const handleNavClick = (sectionId: string) => {
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 50);
+    });
+  };
+
   useEffect(() => {
     if (!id) return;
 
@@ -42,13 +53,26 @@ const CamperPage = () => {
             </Link>
             <DetailInfo {...camper} />
             <nav className={s.camperNav}>
-              <NavLink end to='' className={addActiveClass(s.camperLink, s.active)}>
+              <NavLink
+                end
+                to=''
+                className={addActiveClass(s.camperLink, s.active)}
+                onClick={() => handleNavClick('features')}
+              >
                 Features
               </NavLink>
-              <NavLink to='reviews' className={addActiveClass(s.camperLink, s.active)}>
+              <NavLink
+                to='reviews'
+                className={addActiveClass(s.camperLink, s.active)}
+                onClick={() => handleNavClick('reviews')}
+              >
                 Reviews
               </NavLink>
-              <NavLink to='favourites' className={addActiveClass(s.camperLink, s.active)}>
+              <NavLink
+                to='favourites'
+                className={addActiveClass(s.camperLink, s.active)}
+                onClick={() => handleNavClick('favourites')}
+              >
                 Favourites
               </NavLink>
             </nav>
