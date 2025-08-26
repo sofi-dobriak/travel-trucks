@@ -39,7 +39,7 @@ export default function FilterInput({
   }
 
   const handleClick = () => {
-    if (type === 'radio') {
+    if (type === 'radio' || value) {
       const newValue = isChecked ? '' : value;
       setLocalFilters(prev => ({ ...prev, [filterKey]: newValue }));
     } else {
