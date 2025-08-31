@@ -9,20 +9,31 @@ Users can browse the camper catalog, filter results, add campers to favorites, v
 
 ## ✨ Features
 - 🏠 **Home page** with a banner and CTA button leading to the catalog  
+
+![Home page](./public/images/home-page.png)
+
+
 - 📑 **Camper catalog** with:
   - filtering (location, vehicle type, AC, kitchen, and more)  
   - **Load More** button to fetch additional campers  
   - ability to add campers to **favorites** (saved even after refresh)  
+
+![Catalog page](./public/images/catalog-page.png)
+
 - 🚐 **Single camper page**:
   - photo gallery  
   - specifications (transmission, engine, AC, kitchen, bathroom, etc.)  
   - technical details (form, length, width, tank, fuel consumption, etc.)  
   - user reviews with a 5-star rating ⭐  
   - booking form with a success notification  
+
+![Camper page one](./public/images/camper-page-1.png)
+![Camper page two](./public/images/camper-page-2.png)
+
 - 🔗 Routing:  
-  - `/` – Home page  
-  - `/catalog` – Catalog  
-  - `/catalog/:id` – Camper details  
+  - `/` — Home page  
+  - `/catalog` — Catalog  
+  - `/catalog/:id` — Camper details  
 
 ---
 
