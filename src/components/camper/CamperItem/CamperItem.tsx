@@ -11,7 +11,12 @@ const CamperItem = (camper: Camper) => {
 
   return (
     <div className={s.camperContainer}>
-      <img src={camper.gallery[0].thumb} alt='A camper image' className={s.camperImage} />
+      <img
+        src={camper.gallery[0].thumb}
+        alt='A camper image'
+        className={s.camperImage}
+        width={292}
+      />
 
       <div className={s.camperTextContainer}>
         <CamperHeader
