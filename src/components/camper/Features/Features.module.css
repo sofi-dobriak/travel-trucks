@@ -4,7 +4,7 @@
   background-color: var(--header-bg-color);
   width: 100%;
   max-width: 630px;
-  max-height: 564px;
+  height: 564px;
   overflow-y: auto;
 }
 
